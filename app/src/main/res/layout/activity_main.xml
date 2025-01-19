@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background=""
     tools:context=".MainActivity">
 
     <TextView
@@ -20,7 +21,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/waktu_text_TV"
         android:layout_width="match_parent"
@@ -29,11 +29,10 @@
         android:layout_marginTop="15dp"
         android:text="tt bbbb thth"
         android:textAlignment="textEnd"
-        android:textSize="18sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/welcome_text_TV" />
-
     <androidx.cardview.widget.CardView
         android:id="@+id/container_card_view"
         android:layout_width="match_parent"
@@ -49,14 +48,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="15dp">
+            android:orientation="vertical">
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:paddingBottom="15dp">
-
+                android:paddingVertical="10dp">
                 <TextView
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
@@ -67,9 +64,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/nominal_text_TV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="RP 00.000,-"
@@ -82,91 +78,80 @@
                 android:layout_height="wrap_content"
                 android:columnCount="3"
                 android:rowCount="1"
-                >
+                android:background="@drawable/border1"
+                android:paddingTop="0.5dp">
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1">
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
-                        android:gravity="center">
-
+                        android:gravity="center"
+                        android:paddingVertical="15dp">
                         <ImageView
                             android:layout_width="70dp"
                             android:layout_height="70dp"
                             android:src="@drawable/transaksi" />
-
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Transaksi"
                             android:textAlignment="center"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
+                            android:textSize="15sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
-
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1">
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
-                        android:gravity="center">
-
+                        android:gravity="center"
+                        android:paddingVertical="15dp">
                         <ImageView
                             android:layout_width="70dp"
                             android:layout_height="70dp"
                             android:src="@drawable/pelanggan" />
-
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Transaksi"
+                            android:text="Pelanggan"
                             android:textAlignment="center"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
+                            android:textSize="15sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
-
                 <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_rowWeight="1"
                     android:layout_columnWeight="1">
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
-                        android:gravity="center">
-
+                        android:gravity="center"
+                        android:paddingVertical="15dp">
                         <ImageView
                             android:layout_width="70dp"
                             android:layout_height="70dp"
                             android:src="@drawable/laporan" />
-
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Transaksi"
+                            android:text="Laporan"
                             android:textAlignment="center"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
+                            android:textSize="15sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </GridLayout>
             </LinearLayout>
     </androidx.cardview.widget.CardView>
-
     <TextView
         android:id="@+id/moto_text_TV"
         android:layout_width="match_parent"
@@ -180,7 +165,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/container_card_view" />
-
     <TextView
         android:id="@+id/moto_text_2_TV"
         android:layout_width="match_parent"
@@ -193,222 +177,201 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/moto_text_TV" />
-
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="3dp"
         android:layout_marginTop="10dp"
         android:columnCount="3"
+        android:padding="8dp"
         android:rowCount="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/moto_text_2_TV">
-
         <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
-            android:layout_gravity="center"
+            android:layout_margin="8dp"
             app:cardCornerRadius="8dp"
-            app:cardElevation="4dp">
-
+            app:cardElevation="6dp">
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginh="15dp"
                 android:gravity="center"
                 android:orientation="vertical">
-
                 <ImageView
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:minWidth="80dp"
                     android:minHeight="80dp"
                     android:src="@drawable/akun" />
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Akun"
+                    android:layout_marginTop="10dp"
                     android:textAlignment="center"
                     android:textColor="#333333"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textSize="15sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
         <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
-            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:backgroundTint="#FFFFFF"
             app:cardCornerRadius="8dp"
-            app:cardElevation="4dp">
-
+            app:cardElevation="6dp">
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
                 android:gravity="center"
                 android:orientation="vertical">
-
                 <ImageView
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:minWidth="80dp"
                     android:minHeight="80dp"
-                    android:src="@drawable/akun" />
-
+                    android:src="@drawable/layanan" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Akun"
+                    android:text="Layanan"
+                    android:layout_marginTop="10dp"
                     android:textAlignment="center"
                     android:textColor="#333333"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textSize="15sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
         <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
-            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:backgroundTint="#FFFFFF"
             app:cardCornerRadius="8dp"
-            app:cardElevation="4dp">
-
+            app:cardElevation="6dp">
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
                 android:gravity="center"
                 android:orientation="vertical">
-
                 <ImageView
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:minWidth="80dp"
                     android:minHeight="80dp"
-                    android:src="@drawable/akun" />
-
+                    android:src="@drawable/tambahan" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Akun"
+                    android:text="Tambahan"
+                    android:layout_marginTop="10dp"
                     android:textAlignment="center"
                     android:textColor="#333333"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textSize="15sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
         <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
-            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:backgroundTint="#FFFFFF"
             app:cardCornerRadius="8dp"
-            app:cardElevation="4dp">
-
+            app:cardElevation="6dp">
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
                 android:gravity="center"
                 android:orientation="vertical">
-
                 <ImageView
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:minWidth="80dp"
                     android:minHeight="80dp"
-                    android:src="@drawable/akun" />
-
+                    android:src="@drawable/pegawai" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Akun"
+                    android:text="Pegawai"
+                    android:layout_marginTop="10dp"
                     android:textAlignment="center"
                     android:textColor="#333333"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textSize="15sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
         <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
-            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:backgroundTint="#FFFFFF"
             app:cardCornerRadius="8dp"
-            app:cardElevation="4dp">
-
+            app:cardElevation="6dp">
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
                 android:gravity="center"
                 android:orientation="vertical">
-
                 <ImageView
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:minWidth="80dp"
                     android:minHeight="80dp"
-                    android:src="@drawable/akun" />
-
+                    android:src="@drawable/cabang" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Akun"
+                    android:text="Cabang"
+                    android:layout_marginTop="10dp"
                     android:textAlignment="center"
                     android:textColor="#333333"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textSize="15sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
         <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_rowWeight="1"
             android:layout_columnWeight="1"
-            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:backgroundTint="#FFFFFF"
             app:cardCornerRadius="8dp"
-            app:cardElevation="4dp">
-
+            app:cardElevation="6dp">
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
                 android:gravity="center"
                 android:orientation="vertical">
-
                 <ImageView
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:minWidth="80dp"
                     android:minHeight="80dp"
-                    android:src="@drawable/akun" />
-
+                    android:src="@drawable/printer" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Akun"
+                    android:text="Printer"
+                    android:layout_marginTop="10dp"
                     android:textAlignment="center"
                     android:textColor="#333333"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textSize="15sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
     </GridLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
