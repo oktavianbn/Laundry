@@ -1,11 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.Laundry" parent="Theme.Material3.DayNight">
-        <!-- Warna utama untuk Light Mode -->
-        <item name="colorPrimary">#FFFFFF</item>
-        <item name="colorOnPrimary">#000000</item>
-        <item name="colorSecondary">#03DAC6</item>
-        <item name="colorSurface">#FFFFFF</item>
-        <item name="colorOnSurface">#FFFFFF</item>
+        <!-- Warna untuk Light Mode -->
+        <color name="colorPrimary">#6200EE</color>
+        <color name="colorPrimaryVariant">#3700B3</color>
+        <color name="colorSecondary">#03DAC6</color>
+        <color name="colorOnPrimary">#FFFFFF</color>
+        <color name="colorOnSecondary">#000000</color>
+        <color name="colorBackground">#FFFFFF</color>
+        <color name="colorOnBackground">#000000</color>
+        <color name="colorSurface">#FFFFFF</color>
+        <color name="colorOnSurface">#000000</color>
+        <color name="colorBorder">#E0E0E0</color>
     </style>
 </resources>

@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background=""
     tools:context=".MainActivity">
 
     <TextView
@@ -18,6 +17,7 @@
         android:textSize="30sp"
         android:layout_marginTop="30dp"
         android:textStyle="bold"
+        android:textColor="@color/colorOnSecondary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -199,7 +199,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginh="15dp"
+                android:layout_margin="15dp"
                 android:gravity="center"
                 android:orientation="vertical">
                 <ImageView
