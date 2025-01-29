@@ -12,8 +12,8 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
-    lateinit var welcome_text_TV:TextView
-    lateinit var waktu_text_TV: TextView
+    lateinit var tvWelcome:TextView
+    lateinit var tvWaktu: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,8 +29,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
     fun init(){
-        welcome_text_TV = findViewById(R.id.welcome_text_TV)
-        waktu_text_TV = findViewById(R.id.waktu_text_TV)
+        tvWelcome = findViewById(R.id.tvWelcome)
+        tvWaktu = findViewById(R.id.tvWaktu)
     }
     @SuppressLint("SimpleDateFormat")
     private fun pewaktu() {
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             in 16..18 -> "Selamat Sore"
             else -> "Selamat Malam"
         }
-        welcome_text_TV.text = result
-        waktu_text_TV.text = hth.format(Calendar.getInstance().time)
+        tvWelcome.text = result
+        tvWaktu.text = hth.format(Calendar.getInstance().time)
     }
 }
