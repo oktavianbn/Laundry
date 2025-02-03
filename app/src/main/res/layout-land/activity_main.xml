@@ -46,23 +46,23 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/container_card_view"
         style="@style/cardViewStyle"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
                 android:layout_marginVertical="15dp"
@@ -77,6 +77,7 @@
                     android:layout_weight="1"
                     android:text="EstimasiHariIni"
                     android:textSize="20sp"
+                    android:layout_marginRight="5dp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -100,6 +101,7 @@
                 android:background="@drawable/border1"
                 android:columnCount="1"
                 android:paddingTop="0.5dp"
+                android:layout_marginHorizontal="10dp"
                 android:rowCount="3">
 
                 <androidx.cardview.widget.CardView
@@ -234,6 +236,7 @@
         android:layout_marginHorizontal="3dp"
         android:columnCount="3"
         android:padding="8dp"
+        android:layout_marginTop="15dp"
         android:rowCount="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/container_card_view"
