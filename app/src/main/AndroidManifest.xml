@@ -13,6 +13,30 @@
         android:theme="@style/Theme.Laundry"
         tools:targetApi="31">
         <activity
+            android:name=".tambahan.DataTambahanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".tambahan.TambahTambahanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".layanan.DataLayananActivity"
+            android:exported="false" />
+        <activity
+            android:name=".layanan.TambahLayananActivity"
+            android:exported="false" />
+        <activity
+            android:name=".cabang.TambahCabangActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pegawai.TambahPegawaiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pegawai.DataPegawaiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".cabang.DataCabangActivity"
+            android:exported="false" />
+        <activity
             android:name=".pelanggan.TambahPelangganActivity"
             android:exported="false" />
         <activity
