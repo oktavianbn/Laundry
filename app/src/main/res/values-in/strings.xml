@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Laundry</string>
+    <string name="IDPelanggan">ID Customer</string>
+    <string name="Hubungi">Hubungi</string>
+    <string name="LIhat">Lihat</string>
+    <string name="NamaPelanggan">Nama Pelanggan</string>
+    <string name="AlamatPelanggan">Alamat Pelanggan</string>
+    <string name="NomorTeleponPelanggan">Nomor Telepon Pelanggan</string>
+    <string name="NomorTelepon">Nomor Telepon</string>
+    <string name="IDPegawai">ID Worker</string>
+    <string name="NamaPegawai">Nama Pelanggan</string>
+    <string name="AlamatPegawai">Alamat Pegawai</string>
+    <string name="CabangPegawai">Cabang Pegawai</string>
+    <string name="SatusPegawai">Satus Pegawai</string>
+    <string name="NamaLengkap">Nama Lengkap</string>
+    <string name="Alamat">Alamat</string>
+    <string name="Cabang">Cabang</string>
+    <string name="NomorTeleponPegawai">Nomor Telepon Pegawai</string>
+    <string name="TabmbahPelanggan">Tabmbah Pelanggan</string>
+    <string name="TambahPegawai">Tambah Pegawai</string>
+</resources>

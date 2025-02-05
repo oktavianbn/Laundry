@@ -11,7 +11,7 @@
         android:id="@+id/tvJudul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TAMBAH PELANGGAN"
+        android:text="@string/TambahPegawai"
         android:textSize="25dp"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
@@ -23,7 +23,7 @@
         android:id="@+id/tvNama"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nama Lengkap"
+        android:text="@string/NamaLengkap"
         android:layout_marginLeft="20dp"
         android:textSize="20sp"
         android:layout_marginTop="30dp"
@@ -50,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:text="Alamat"
+        android:text="@string/Alamat"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:text="Nomor Hp"
+        android:text="@string/NomorTelepon"
         android:textSize="20sp"
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,15 +97,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvNoHp" />
 
+    <TextView
+        android:id="@+id/tvCabang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="@string/Cabang"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNoHpPelanggan" />
+
+    <EditText
+        android:id="@+id/etCabangPelanggan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border3"
+        android:hint="Cabang"
+        android:minHeight="48dp"
+        android:padding="5dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCabang" />
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:text="Bergabung"
+        style="@style/buttonStyle1"
         android:textSize="20sp"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNoHpPelanggan" />
+        app:layout_constraintTop_toBottomOf="@+id/etCabangPelanggan" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="20dp"
     app:cardCornerRadius="10dp"
+    android:layout_marginHorizontal="20dp"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">
@@ -17,37 +17,54 @@
         android:padding="10dp">
 
         <TextView
-            android:id="@+id/tvIdPelanggan"
+            android:id="@+id/tvIdPegawai"
             style="@style/textViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FF9800"
+            android:background="#4B8E00"
             android:padding="2dp"
-            android:text="@string/IDPelanggan" />
+            android:text="@string/IDPegawai"
+            android:textColor="#000000" />
 
         <TextView
-            android:id="@+id/tvNamaPelanggan"
+            android:id="@+id/tvNamaPegawai"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:text="@string/NamaPelanggan"
+            android:text="@string/NamaPegawai"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvAlamatPelanggan"
+            android:id="@+id/tvAlamatPegawai"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:text="@string/AlamatPelanggan"
+            android:text="@string/AlamatPegawai"
             android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/tvNoHpPelanggan"
+            android:id="@+id/tvNoHppegawai"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:text="@string/NomorTeleponPelanggan"
+            android:text="@string/NomorTeleponPegawai"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/SatusPegawai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/SatusPegawai"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tvCabangPegawai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/CabangPegawai"
             android:textSize="15sp" />
 
         <LinearLayout

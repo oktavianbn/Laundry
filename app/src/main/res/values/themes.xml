@@ -16,6 +16,16 @@
     <style name="cardViewStyle">
         <item name="android:backgroundTint">#fdfcfa</item>
     </style>
+    <style name="buttonStyle1">
+        <item name="android:backgroundTint">#3F51B5</item>
+        <item name="android:textColor">#FFFFFF</item>
+
+    </style>
+    <style name="buttonStyle2">
+        <item name="android:backgroundTint">#1F2845</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
 
 
 </resources>
