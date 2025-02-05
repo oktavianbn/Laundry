@@ -16,7 +16,11 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    packaging {
+        resources {
+            pickFirsts.add("META-INF/androidx.cardview_cardview.version")
+        }
+    }
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -42,7 +46,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.cardview.v7)
+    // implementation(libs.cardview.v7) // HAPUS BARIS INI
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
