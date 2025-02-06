@@ -19,4 +19,11 @@
     <string name="NomorTeleponPegawai">Worker Phone Nummber</string>
     <string name="TabmbahPelanggan">Add Custemer</string>
     <string name="TambahPegawai">Add Worker</string>
+    <string name="NamaPelangganKosong">Tolong Isi Nama</string>
+    <string name="AlamatPelangganKosong">Tolong Isi Alamat</string>
+    <string name="CabangPelangganKosong">Tolong Isi Cabang</string>
+    <string name="NomorTeleponPelangganKosong">Tolong Isi Nomor</string>
+    <string name="IDCabang">IDBranch</string>
+    <string name="GagalSimpan">Data Saved Successfully</string>
+    <string name="BerhasilSimpan">Data Failed to Save</string>
 </resources>
