@@ -1,5 +1,6 @@
 package com.example.laundry.pelanggan
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -10,7 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.laundry.R
-import com.example.laundry.adapter.DataPelangganAdapter
+import com.example.laundry.adapter.AdapterDataPelanggan
 import com.example.laundry.model_data.ModelPelanggan
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.DataSnapshot
@@ -58,6 +59,7 @@ class DataPelangganActivity : AppCompatActivity() {
     fun getDataPelanggan(){
         val query = myRef.orderByChild("pelanggan").limitToLast(100)
         query.addValueEventListener(object : ValueEventListener{
+            @SuppressLint("NotifyDataSetChanged")
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()){
                     pelangganList.clear()
@@ -65,7 +67,7 @@ class DataPelangganActivity : AppCompatActivity() {
                         val pegawai = data.getValue(ModelPelanggan::class.java)
                         pelangganList.add(pegawai!!)
                     }
-                    val adapter = DataPelangganAdapter(pelangganList)
+                    val adapter = AdapterDataPelanggan(pelangganList)
                     rvDataPelanggan.adapter = adapter
                     adapter.notifyDataSetChanged()
 

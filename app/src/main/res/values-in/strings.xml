@@ -12,12 +12,12 @@
     <string name="NamaPegawai">Nama Pelanggan</string>
     <string name="AlamatPegawai">Alamat Pegawai</string>
     <string name="CabangPegawai">Cabang Pegawai</string>
-    <string name="SatusPegawai">Satus Pegawai</string>
+    <string name="StatusPegawai">Status Pegawai</string>
     <string name="NamaLengkap">Nama Lengkap</string>
     <string name="Alamat">Alamat</string>
     <string name="Cabang">Cabang</string>
     <string name="NomorTeleponPegawai">Nomor Telepon Pegawai</string>
-    <string name="TabmbahPelanggan">Tabmbah Pelanggan</string>
+    <string name="TambahPelanggan">Tambah Pelanggan</string>
     <string name="TambahPegawai">Tambah Pegawai</string>
     <string name="NamaPelangganKosong">Tolong Isi Nama</string>
     <string name="AlamatPelangganKosong">Tolong Isi Alamat</string>
@@ -26,4 +26,5 @@
     <string name="IDCabang">ID Cabang</string>
     <string name="GagalSimpan">Data Berhasil Disimpan</string>
     <string name="BerhasilSimpan">Data Gagal Disimpan</string>
+    <string name="Terdaftar">Terdaftar</string>
 </resources>

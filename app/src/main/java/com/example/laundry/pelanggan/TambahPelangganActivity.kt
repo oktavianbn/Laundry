@@ -1,6 +1,5 @@
 package com.example.laundry.pelanggan
 
-import android.net.ConnectivityManager
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -57,11 +56,6 @@ class TambahPelangganActivity : AppCompatActivity() {
         val noHp = etNoHpPelanggan.text.toString().trim()
         val cabang = etCabangPelanggan.text.toString().trim()
 
-        if (!isInternetAvailable()) {
-            Toast.makeText(this, "Tidak ada koneksi internet!", Toast.LENGTH_SHORT).show()
-            return
-        }else{Toast.makeText(this, "Ada koneksi internet!", Toast.LENGTH_SHORT).show()}
-
         if (nama.isEmpty()) {
             etNamaPelanggan.error = getString(R.string.NamaPelangganKosong)
             etNamaPelanggan.requestFocus()
@@ -85,15 +79,9 @@ class TambahPelangganActivity : AppCompatActivity() {
         simpan()
     }
 
-    private fun isInternetAvailable(): Boolean {
-        val connectivityManager = getSystemService(ConnectivityManager::class.java)
-        val network = connectivityManager.activeNetwork
-        return network != null
-    }
-
-    fun simpan() {
+    private fun simpan() {
         val pelangganBaru = myRef.push()
-        val pelangganID = pelangganBaru.key ?: "" // Hindari `null`
+        val pelangganID = pelangganBaru.key ?: ""
 
         Log.d("FirebaseDebug", "Mempersiapkan data pelanggan ID: $pelangganID")
 
@@ -104,8 +92,6 @@ class TambahPelangganActivity : AppCompatActivity() {
             etNoHpPelanggan.text.toString(),
             etCabangPelanggan.text.toString()
         )
-
-        Log.d("FirebaseDebug", "Menyimpan data ke Firebase...")
 
         pelangganBaru.setValue(data)
             .addOnSuccessListener {

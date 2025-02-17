@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvJudul" />
 
     <EditText
-        android:id="@+id/etNamaPelanggan"
+        android:id="@+id/etNamaPegawai"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
@@ -54,10 +54,10 @@
         android:textSize="20sp"
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNamaPelanggan" />
+        app:layout_constraintTop_toBottomOf="@+id/etNamaPegawai" />
 
     <EditText
-        android:id="@+id/etAlamatPelanggan"
+        android:id="@+id/etAlamatPegawai"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
@@ -80,10 +80,10 @@
         android:textSize="20sp"
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etAlamatPelanggan" />
+        app:layout_constraintTop_toBottomOf="@+id/etAlamatPegawai" />
 
     <EditText
-        android:id="@+id/etNoHpPelanggan"
+        android:id="@+id/etNoHpPegawai"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
@@ -105,10 +105,10 @@
         android:text="@string/Cabang"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNoHpPelanggan" />
+        app:layout_constraintTop_toBottomOf="@+id/etNoHpPegawai" />
 
     <EditText
-        android:id="@+id/etCabangPelanggan"
+        android:id="@+id/etCabangPegawai"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
@@ -132,7 +132,7 @@
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etCabangPelanggan" />
+        app:layout_constraintTop_toBottomOf="@+id/etCabangPegawai" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
