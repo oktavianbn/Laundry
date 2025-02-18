@@ -19,10 +19,10 @@
     <string name="NomorTeleponPegawai">Nomor Telepon Pegawai</string>
     <string name="TambahPelanggan">Tambah Pelanggan</string>
     <string name="TambahPegawai">Tambah Pegawai</string>
-    <string name="NamaPelangganKosong">Tolong Isi Nama</string>
-    <string name="AlamatPelangganKosong">Tolong Isi Alamat</string>
-    <string name="CabangPelangganKosong">Tolong Isi Cabang</string>
-    <string name="NomorTeleponPelangganKosong">Tolong Isi Nomor</string>
+    <string name="NamaKosong">Tolong Isi Nama</string>
+    <string name="AlamatKosong">Tolong Isi Alamat</string>
+    <string name="CabangKosong">Tolong Isi Cabang</string>
+    <string name="NomorTeleponKosong">Tolong Isi Nomor</string>
     <string name="IDCabang">ID Cabang</string>
     <string name="GagalSimpan">Data Berhasil Disimpan</string>
     <string name="BerhasilSimpan">Data Gagal Disimpan</string>

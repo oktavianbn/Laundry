@@ -54,7 +54,6 @@ class DataPelangganActivity : AppCompatActivity() {
             val intent = Intent(this, TambahPelangganActivity::class.java)
             startActivity(intent)
         }
-
     }
     fun getDataPelanggan(){
         val query = myRef.orderByChild("pelanggan").limitToLast(100)
@@ -70,7 +69,6 @@ class DataPelangganActivity : AppCompatActivity() {
                     val adapter = AdapterDataPelanggan(pelangganList)
                     rvDataPelanggan.adapter = adapter
                     adapter.notifyDataSetChanged()
-
                 }
             }
             override fun onCancelled(error: DatabaseError) {

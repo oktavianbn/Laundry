@@ -28,6 +28,8 @@ class TambahPegawaiActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        init()
+        cekValidasi()
         setContentView(R.layout.activity_tambah_pegawai)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -51,22 +53,22 @@ class TambahPegawaiActivity : AppCompatActivity() {
         val cabang = etCabangPegawai.text.toString().trim()
 
         if (nama.isEmpty()) {
-            etNamaPegawai.error = getString(R.string.NamaPegawaiKosong)
+            etNamaPegawai.error = getString(R.string.NamaKosong)
             etNamaPegawai.requestFocus()
             return
         }
         if (alamat.isEmpty()) {
-            etAlamatPegawai.error = getString(R.string.AlamatPegawaiKosong)
+            etAlamatPegawai.error = getString(R.string.AlamatKosong)
             etAlamatPegawai.requestFocus()
             return
         }
         if (noHp.isEmpty()) {
-            etNoHpPegawai.error = getString(R.string.NomorTeleponPegawaiKosong)
+            etNoHpPegawai.error = getString(R.string.NomorTeleponKosong)
             etNoHpPegawai.requestFocus()
             return
         }
         if (cabang.isEmpty()) {
-            etCabangPegawai.error = getString(R.string.CabangPegawaiKosong)
+            etCabangPegawai.error = getString(R.string.CabangKosong)
             etCabangPegawai.requestFocus()
             return
         }

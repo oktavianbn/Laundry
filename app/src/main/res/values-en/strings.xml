@@ -18,10 +18,10 @@
     <string name="NomorTeleponPegawai">Worker Phone Number</string>
     <string name="TambahPelanggan">Add Customer</string>
     <string name="TambahPegawai">Add Worker</string>
-    <string name="NamaPelangganKosong">Please Enter Name</string>
-    <string name="AlamatPelangganKosong">Please Enter Address</string>
-    <string name="CabangPelangganKosong">Please Enter Branch</string>
-    <string name="NomorTeleponPelangganKosong">Please Enter Phone Number</string>
+    <string name="NamaKosong">Please Enter Name</string>
+    <string name="AlamatKosong">Please Enter Address</string>
+    <string name="CabangKosong">Please Enter Branch</string>
+    <string name="NomorTeleponKosong">Please Enter Phone Number</string>
     <string name="IDCabang">Branch ID</string>
     <string name="GagalSimpan">Data Save Failed</string>
     <string name="BerhasilSimpan">Data Saved Successfully</string>

@@ -57,22 +57,22 @@ class TambahPelangganActivity : AppCompatActivity() {
         val cabang = etCabangPelanggan.text.toString().trim()
 
         if (nama.isEmpty()) {
-            etNamaPelanggan.error = getString(R.string.NamaPelangganKosong)
+            etNamaPelanggan.error = getString(R.string.NamaKosong)
             etNamaPelanggan.requestFocus()
             return
         }
         if (alamat.isEmpty()) {
-            etAlamatPelanggan.error = getString(R.string.AlamatPelangganKosong)
+            etAlamatPelanggan.error = getString(R.string.AlamatKosong)
             etAlamatPelanggan.requestFocus()
             return
         }
         if (noHp.isEmpty()) {
-            etNoHpPelanggan.error = getString(R.string.NomorTeleponPelangganKosong)
+            etNoHpPelanggan.error = getString(R.string.NomorTeleponKosong)
             etNoHpPelanggan.requestFocus()
             return
         }
         if (cabang.isEmpty()) {
-            etCabangPelanggan.error = getString(R.string.CabangPelangganKosong)
+            etCabangPelanggan.error = getString(R.string.CabangKosong)
             etCabangPelanggan.requestFocus()
             return
         }

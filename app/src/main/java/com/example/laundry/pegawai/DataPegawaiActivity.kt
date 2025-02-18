@@ -8,12 +8,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.laundry.R
 import com.example.laundry.adapter.AdapterDataPegawai
 import com.example.laundry.model_data.ModelPegawai
 import com.example.laundry.model_data.ModelPelanggan
-import com.example.laundry.pegawai.TambahPegawaiActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -29,10 +29,16 @@ class DataPegawaiActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        setContentView(R.layout.activity_data_pegawai)
         init()
         fabTambah()
+        val layoutManager = LinearLayoutManager(this)
+        layoutManager.reverseLayout = true
+        layoutManager.stackFromEnd = true
+        rvDataPegawai.layoutManager = layoutManager
+        rvDataPegawai.setHasFixedSize(true)
+        pegawaiList= arrayListOf<ModelPegawai>()
         getDatapegawai()
-        setContentView(R.layout.activity_data_pegawai)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -48,7 +54,6 @@ class DataPegawaiActivity : AppCompatActivity() {
             val intent = Intent(this, TambahPegawaiActivity::class.java)
             startActivity(intent)
         }
-
     }
     fun getDatapegawai() {
         val query = myRef.orderByChild("pegawai").limitToLast(100)
@@ -64,10 +69,8 @@ class DataPegawaiActivity : AppCompatActivity() {
                     val adapter = AdapterDataPegawai(pegawaiList)
                     rvDataPegawai.adapter = adapter
                     adapter.notifyDataSetChanged()
-
                 }
             }
-
             override fun onCancelled(error: DatabaseError) {
                 Toast.makeText(this@DataPegawaiActivity, error.message, Toast.LENGTH_SHORT).show()
             }
