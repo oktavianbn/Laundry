@@ -76,13 +76,13 @@ class TambahPegawaiActivity : AppCompatActivity() {
     }
 
     private fun simpan() {
-        val PegawaiBaru = myRef.push()
-        val PegawaiID = PegawaiBaru.key ?: ""
+        val pegawaiBaru = myRef.push()
+        val pegawaiID = pegawaiBaru.key ?: ""
 
-        Log.d("FirebaseDebug", "Mempersiapkan data Pegawai ID: $PegawaiID")
+        Log.d("FirebaseDebug", "Mempersiapkan data Pegawai ID: $pegawaiID")
 
         val data = ModelPegawai(
-            PegawaiID,
+            pegawaiID,
             etNamaPegawai.text.toString(),
             etAlamatPegawai.text.toString(),
             etNoHpPegawai.text.toString(),
@@ -91,7 +91,7 @@ class TambahPegawaiActivity : AppCompatActivity() {
 
         Log.d("FirebaseDebug", "Menyimpan data ke Firebase...")
 
-        PegawaiBaru.setValue(data)
+        pegawaiBaru.setValue(data)
             .addOnSuccessListener {
                 Log.d("FirebaseDebug", "Data berhasil disimpan!")
                 Toast.makeText(this, getString(R.string.BerhasilSimpan), Toast.LENGTH_SHORT).show()

@@ -21,7 +21,7 @@ class TambahPelangganActivity : AppCompatActivity() {
     private lateinit var etNamaPelanggan: EditText
     private lateinit var etAlamatPelanggan: EditText
     private lateinit var etNoHpPelanggan: EditText
-    private lateinit var etCabangPelanggan: EditText
+
     private lateinit var btSimpan: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +46,7 @@ class TambahPelangganActivity : AppCompatActivity() {
         etNamaPelanggan = findViewById(R.id.etNamaPelanggan)
         etAlamatPelanggan = findViewById(R.id.etAlamatPelanggan)
         etNoHpPelanggan = findViewById(R.id.etNoHpPelanggan)
-        etCabangPelanggan = findViewById(R.id.etCabangPelanggan)
+
         btSimpan = findViewById(R.id.btSimpan)
     }
 
@@ -54,7 +54,7 @@ class TambahPelangganActivity : AppCompatActivity() {
         val nama = etNamaPelanggan.text.toString().trim()
         val alamat = etAlamatPelanggan.text.toString().trim()
         val noHp = etNoHpPelanggan.text.toString().trim()
-        val cabang = etCabangPelanggan.text.toString().trim()
+
 
         if (nama.isEmpty()) {
             etNamaPelanggan.error = getString(R.string.NamaKosong)
@@ -71,11 +71,6 @@ class TambahPelangganActivity : AppCompatActivity() {
             etNoHpPelanggan.requestFocus()
             return
         }
-        if (cabang.isEmpty()) {
-            etCabangPelanggan.error = getString(R.string.CabangKosong)
-            etCabangPelanggan.requestFocus()
-            return
-        }
         simpan()
     }
 
@@ -90,7 +85,6 @@ class TambahPelangganActivity : AppCompatActivity() {
             etNamaPelanggan.text.toString(),
             etAlamatPelanggan.text.toString(),
             etNoHpPelanggan.text.toString(),
-            etCabangPelanggan.text.toString()
         )
 
         pelangganBaru.setValue(data)
