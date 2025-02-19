@@ -38,7 +38,6 @@ class DataPelangganActivity : AppCompatActivity() {
         rvDataPelanggan.setHasFixedSize(true)
         pelangganList= arrayListOf<ModelPelanggan>()
         getDataPelanggan()
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)

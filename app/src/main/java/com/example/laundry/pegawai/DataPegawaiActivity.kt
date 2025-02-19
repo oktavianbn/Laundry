@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.laundry.R
 import com.example.laundry.adapter.AdapterDataPegawai
 import com.example.laundry.model_data.ModelPegawai
-import com.example.laundry.model_data.ModelPelanggan
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -38,7 +37,7 @@ class DataPegawaiActivity : AppCompatActivity() {
         rvDataPegawai.layoutManager = layoutManager
         rvDataPegawai.setHasFixedSize(true)
         pegawaiList= arrayListOf<ModelPegawai>()
-        getDatapegawai()
+        getDataPegawai()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -55,7 +54,7 @@ class DataPegawaiActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-    fun getDatapegawai() {
+    fun getDataPegawai() {
         val query = myRef.orderByChild("pegawai").limitToLast(100)
         query.addValueEventListener(object : ValueEventListener {
             @SuppressLint("NotifyDataSetChanged")

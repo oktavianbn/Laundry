@@ -26,4 +26,6 @@
     <string name="GagalSimpan">Data Save Failed</string>
     <string name="BerhasilSimpan">Data Saved Successfully</string>
     <string name="Terdaftar">Registered</string>
+    <string name="Sunting">Edit</string>
+    <string name="Hapus">Delete</string>
 </resources>

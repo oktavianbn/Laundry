@@ -76,6 +76,7 @@
             android:weightSum="2">
 
             <Button
+                android:id="@+id/btnHubungi"
                 style="@style/buttonStyle1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -83,6 +84,7 @@
                 android:text="@string/Hubungi" />
 
             <Button
+                android:id="@+id/btnLihat"
                 style="@style/buttonStyle2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

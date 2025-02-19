@@ -6,7 +6,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -17,7 +16,6 @@ import com.google.firebase.database.FirebaseDatabase
 class TambahPegawaiActivity : AppCompatActivity() {
     private val database = FirebaseDatabase.getInstance()
     private val myRef = database.getReference("pegawai")
-
     private lateinit var tvJudul: TextView
     private lateinit var etNamaPegawai: EditText
     private lateinit var etAlamatPegawai: EditText
@@ -27,10 +25,11 @@ class TambahPegawaiActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        init()
-        cekValidasi()
         setContentView(R.layout.activity_tambah_pegawai)
+        init()
+        btSimpan.setOnClickListener{
+            cekValidasi()
+        }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)

@@ -16,24 +16,19 @@ import com.google.firebase.database.FirebaseDatabase
 class TambahPelangganActivity : AppCompatActivity() {
     private val database = FirebaseDatabase.getInstance()
     private val myRef = database.getReference("pelanggan")
-
     private lateinit var tvJudul: TextView
     private lateinit var etNamaPelanggan: EditText
     private lateinit var etAlamatPelanggan: EditText
     private lateinit var etNoHpPelanggan: EditText
-
     private lateinit var btSimpan: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tambah_pelanggan)
-
         init()
-
         btSimpan.setOnClickListener {
             cekValidasi()
         }
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -46,7 +41,6 @@ class TambahPelangganActivity : AppCompatActivity() {
         etNamaPelanggan = findViewById(R.id.etNamaPelanggan)
         etAlamatPelanggan = findViewById(R.id.etAlamatPelanggan)
         etNoHpPelanggan = findViewById(R.id.etNoHpPelanggan)
-
         btSimpan = findViewById(R.id.btSimpan)
     }
 
