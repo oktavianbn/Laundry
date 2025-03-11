@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Laundry" parent="Theme.Material3.DayNight">
+    <style name="Theme.Laundry" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Warna untuk Dark Mode -->
         <item name="colorOnBackground">#1a2239</item>
         <item name="colorOnPrimary">#F2DCCC</item>
