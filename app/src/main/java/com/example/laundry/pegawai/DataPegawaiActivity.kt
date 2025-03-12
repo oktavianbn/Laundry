@@ -51,6 +51,13 @@ class DataPegawaiActivity : AppCompatActivity() {
     fun fabTambah(){
         fabDataPegawaiTambah.setOnClickListener {
             val intent = Intent(this, TambahPegawaiActivity::class.java)
+            intent.putExtra("Judul","Edit Pegawai")
+            intent.putExtra("idPegawai",item.idPegawai)
+            intent.putExtra("namaPegawai",item.namaPegawai)
+            intent.putExtra("noHpPegawai",item.noHpPegawai)
+            intent.putExtra("alamatPegawai",item.alamatPegawai)
+//            intent.putExtra("idCabang",item.idCabang)
+            appContext.startActivity(intent)
             startActivity(intent)
         }
     }

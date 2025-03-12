@@ -28,4 +28,8 @@
     <string name="Terdaftar">Registered</string>
     <string name="Sunting">Edit</string>
     <string name="Hapus">Delete</string>
+    <string name="NamaLayanan">Service Name</string>
+    <string name="Harga">Price</string>
+    <string name="HargaLayanan">Service Price</string>
+    <string name="TambahLayanan">Add Service</string>
 </resources>

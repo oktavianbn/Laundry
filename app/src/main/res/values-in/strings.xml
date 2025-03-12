@@ -29,4 +29,8 @@
     <string name="Terdaftar">Terdaftar</string>
     <string name="Sunting">Sunting</string>
     <string name="Hapus">Hapus</string>
+    <string name="NamaLayanan">Nama Layanan</string>
+    <string name="Harga">Harga</string>
+    <string name="HargaLayanan">Harga Layanan</string>
+    <string name="TambahLayanan">Tambah Layanan</string>
 </resources>

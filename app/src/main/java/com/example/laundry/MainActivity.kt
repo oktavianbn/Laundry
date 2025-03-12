@@ -10,8 +10,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import com.example.laundry.pegawai.DataPegawaiActivity
 import com.example.laundry.pelanggan.DataPelangganActivity
+
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -76,7 +81,22 @@ class MainActivity : AppCompatActivity() {
             in 16..18 -> "Selamat Sore"
             else -> "Selamat Malam"
         }
+
+
         tvWelcome.text = result
         tvWaktu.text = hth.format(Calendar.getInstance().time)
+    }
+    fun startClockUpdater() {
+        lifecycleScope.launch {
+            while (isActive) {
+                pewaktu()
+                delay(60 * 1000)
+            }
+        }
+    }
+
+    override  fun onResume() {
+        super.onResume()
+        startClockUpdater()
     }
 }

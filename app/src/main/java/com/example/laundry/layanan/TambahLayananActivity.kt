@@ -11,17 +11,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.laundry.R
-import com.example.laundry.model_data.ModelPegawai
+import com.example.laundry.model_data.ModelLayanan
 import com.google.firebase.database.FirebaseDatabase
 
 class TambahLayananActivity : AppCompatActivity() {
     private val database = FirebaseDatabase.getInstance()
-    private val myRef = database.getReference("pegawai")
+    private val myRef = database.getReference("layanan")
     private lateinit var tvJudul: TextView
-    private lateinit var etNamaPegawai: EditText
-    private lateinit var etAlamatPegawai: EditText
-    private lateinit var etNoHpPegawai: EditText
-    private lateinit var etCabangPegawai: EditText
+    private lateinit var etNamaLayanan: EditText
+    private lateinit var etAlamatLayanan: EditText
+    private lateinit var etNoHpLayanan: EditText
+    private lateinit var etCabangLayanan: EditText
     private lateinit var btSimpan: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,59 +41,58 @@ class TambahLayananActivity : AppCompatActivity() {
 
     private fun init() {
         tvJudul = findViewById(R.id.tvJudul)
-        etNamaPegawai = findViewById(R.id.etNamaPegawai)
-        etAlamatPegawai = findViewById(R.id.etAlamatPegawai)
-        etNoHpPegawai = findViewById(R.id.etNoHpPegawai)
-        etCabangPegawai = findViewById(R.id.etCabangPegawai)
+        etNamaLayanan = findViewById(R.id.etNamaLayanan)
+        etAlamatLayanan = findViewById(R.id.etHargaLayanan)
+        etCabangLayanan = findViewById(R.id.etCabangLayanan)
         btSimpan = findViewById(R.id.btSimpan)
     }
 
     private fun cekValidasi() {
-        val nama = etNamaPegawai.text.toString().trim()
-        val alamat = etAlamatPegawai.text.toString().trim()
-        val noHp = etNoHpPegawai.text.toString().trim()
-        val cabang = etCabangPegawai.text.toString().trim()
+        val nama = etNamaLayanan.text.toString().trim()
+        val alamat = etAlamatLayanan.text.toString().trim()
+        val noHp = etNoHpLayanan.text.toString().trim()
+        val cabang = etCabangLayanan.text.toString().trim()
 
         if (nama.isEmpty()) {
-            etNamaPegawai.error = getString(R.string.NamaKosong)
-            etNamaPegawai.requestFocus()
+            etNamaLayanan.error = getString(R.string.NamaKosong)
+            etNamaLayanan.requestFocus()
             return
         }
         if (alamat.isEmpty()) {
-            etAlamatPegawai.error = getString(R.string.AlamatKosong)
-            etAlamatPegawai.requestFocus()
+            etAlamatLayanan.error = getString(R.string.AlamatKosong)
+            etAlamatLayanan.requestFocus()
             return
         }
         if (noHp.isEmpty()) {
-            etNoHpPegawai.error = getString(R.string.NomorTeleponKosong)
-            etNoHpPegawai.requestFocus()
+            etNoHpLayanan.error = getString(R.string.NomorTeleponKosong)
+            etNoHpLayanan.requestFocus()
             return
         }
         if (cabang.isEmpty()) {
-            etCabangPegawai.error = getString(R.string.CabangKosong)
-            etCabangPegawai.requestFocus()
+            etCabangLayanan.error = getString(R.string.CabangKosong)
+            etCabangLayanan.requestFocus()
             return
         }
         simpan()
     }
 
     private fun simpan() {
-        val pegawaiBaru = myRef.push()
-        val pegawaiID = pegawaiBaru.key ?: ""
+        val LayananBaru = myRef.push()
+        val LayananID = LayananBaru.key ?: ""
 
-        Log.d("FirebaseDebug", "Mempersiapkan data Pegawai ID: $pegawaiID")
+        Log.d("FirebaseDebug", "Mempersiapkan data Layanan ID: $LayananID")
 
-        val data = ModelPegawai(
-            pegawaiID,
-            etNamaPegawai.text.toString(),
-            etAlamatPegawai.text.toString(),
-            etNoHpPegawai.text.toString(),
-            etCabangPegawai.text.toString()
+        val data = ModelLayanan(
+            LayananID,
+            etNamaLayanan.text.toString(),
+            etAlamatLayanan.text.toString(),
+            etNoHpLayanan.text.toString(),
+            etCabangLayanan.text.toString()
         )
 
         Log.d("FirebaseDebug", "Menyimpan data ke Firebase...")
 
-        pegawaiBaru.setValue(data)
+        LayananBaru.setValue(data)
             .addOnSuccessListener {
                 Log.d("FirebaseDebug", "Data berhasil disimpan!")
                 Toast.makeText(this, getString(R.string.BerhasilSimpan), Toast.LENGTH_SHORT).show()
