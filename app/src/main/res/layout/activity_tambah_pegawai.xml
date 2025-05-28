@@ -3,137 +3,128 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    style="@style/backgroundStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="24dp"
     tools:context=".pegawai.TambahPegawaiActivity">
 
+    <!-- Judul -->
     <TextView
         android:id="@+id/tvJudul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/TambahPegawai"
-        android:textSize="25dp"
+        android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
         android:textStyle="bold"
-        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvNama"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/NamaLengkap"
-        android:layout_marginLeft="20dp"
-        android:textSize="20sp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvJudul" />
-
-    <EditText
-        android:id="@+id/etNamaPegawai"
+    <!-- Input Nama -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutNama"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/border3"
-        android:hint="Nama Lengkap"
-        android:minHeight="48dp"
-        android:padding="5dp"
-        android:textSize="20sp"
+        android:layout_marginTop="24dp"
+        android:hint="@string/NamaLengkap"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNama" />
+        app:layout_constraintTop_toBottomOf="@+id/tvJudul">
 
-    <TextView
-        android:id="@+id/tvAlamat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text="@string/Alamat"
-        android:textSize="20sp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNamaPegawai" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etNamaPegawai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/etAlamatPegawai"
+    <!-- Input Alamat -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutAlamat"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/border3"
-        android:hint="Alamat"
-        android:minHeight="48dp"
-        android:padding="5dp"
-        android:textSize="20sp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/Alamat"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvAlamat" />
+        app:layout_constraintTop_toBottomOf="@id/layoutNama">
 
-    <TextView
-        android:id="@+id/tvNoHp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text="@string/NomorTelepon"
-        android:textSize="20sp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etAlamatPegawai" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etAlamatPegawai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/etNoHpPegawai"
+    <!-- Input No Telepon -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutNoHp"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/border3"
-        android:hint="Nomor Hp"
-        android:minHeight="48dp"
-        android:padding="5dp"
-        android:textSize="20sp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/NomorTelepon"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNoHp" />
+        app:layout_constraintTop_toBottomOf="@id/layoutAlamat">
 
-    <TextView
-        android:id="@+id/tvCabang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text="@string/Cabang"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNoHpPegawai" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etNoHpPegawai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/etCabangPegawai"
+    <!-- Input Cabang -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutCabang"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/border3"
-        android:hint="Cabang"
-        android:minHeight="48dp"
-        android:padding="5dp"
-        android:textSize="20sp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/Cabang"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCabang" />
+        app:layout_constraintTop_toBottomOf="@id/layoutNoHp">
 
-    <Button
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etCabangPegawai"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Tombol Simpan -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btSimpan"
+        style="@style/buttonStyle1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:text="Bergabung"
-        style="@style/buttonStyle1"
-        android:textSize="20sp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/TambahPegawai"
+        android:textAllCaps="false"
+        app:iconPadding="8dp"
+        app:iconTint="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etCabangPegawai" />
-
-
+        app:layout_constraintTop_toBottomOf="@id/layoutCabang" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,7 +22,7 @@
     <string name="NamaKosong">Tolong Isi Nama</string>
     <string name="AlamatKosong">Tolong Isi Alamat</string>
     <string name="CabangKosong">Tolong Isi Cabang</string>
-    <string name="NomorTeleponKosong">Tolong Isi Nomor</string>
+    <string name="NomorTeleponKosong">Tolong Isi Nomor Telepon</string>
     <string name="IDCabang">ID Cabang</string>
     <string name="GagalSimpan">Data Gagal Disimpan</string>
     <string name="BerhasilSimpan">Data Berhasil Disimpan</string>
@@ -33,4 +33,7 @@
     <string name="Harga">Harga</string>
     <string name="HargaLayanan">Harga Layanan</string>
     <string name="TambahLayanan">Tambah Layanan</string>
+    <string name="HargaKosong">Tolong Isi Harga</string>
+    <string name="TambahLayananTambahan">Tambah Layanan Tambahan</string>
+    <string name="IDLayanan">ID Layanan</string>
 </resources>

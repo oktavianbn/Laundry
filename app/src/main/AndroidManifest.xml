@@ -2,36 +2,79 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/layanan"
         android:label="laundry"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Laundry"
+        android:theme="@style/Theme.MyApp.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".transaksi.PilihLayananTambahanActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MyApp.WithActionBar" />
+        <activity
+            android:name=".tambahan.TambahTambahanActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MyApp.WithActionBar" />
+        <activity
+            android:name=".tambahan.DataTambahanActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MyApp.WithActionBar" />
+        <activity
+            android:name=".transaksi.PilihPelangganActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MyApp.WithActionBar" />
+        <activity
+            android:name=".transaksi.PilihLayananActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MyApp.WithActionBar" />
+        <activity
+            android:name=".transaksi.TransakasiActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MyApp.WithActionBar" />
+        <activity
+            android:name=".login.LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MyApp.WithActionBar" />
+        <activity
+            android:name=".laporan.DataLaporanActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MyApp.WithActionBar" />
+        <activity
             android:name=".layanan.TambahLayananActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.MyApp.WithActionBar" />
         <activity
             android:name=".layanan.DataLayananActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.MyApp.WithActionBar" />
         <activity
             android:name=".pegawai.TambahPegawaiActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.MyApp.WithActionBar" />
         <activity
             android:name=".pegawai.DataPegawaiActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.MyApp.WithActionBar" />
         <activity
             android:name=".pelanggan.TambahPelangganActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.MyApp.WithActionBar" />
         <activity
             android:name=".pelanggan.DataPelangganActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.MyApp.WithActionBar" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

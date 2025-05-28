@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "49199117145",
+    "firebase_url": "https://laundry-8b844-default-rtdb.firebaseio.com",
+    "project_id": "laundry-8b844",
+    "storage_bucket": "laundry-8b844.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49199117145:android:08c5f68590069fadc21248",
+        "android_client_info": {
+          "package_name": "com.example.laundry"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOtJuZz02TCJTcgTNxnrnKX-jjc3IwUAU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

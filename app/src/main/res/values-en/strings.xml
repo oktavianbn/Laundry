@@ -32,4 +32,7 @@
     <string name="Harga">Price</string>
     <string name="HargaLayanan">Service Price</string>
     <string name="TambahLayanan">Add Service</string>
+    <string name="HargaKosong">Please Enter Price</string>
+    <string name="TambahLayananTambahan">Add Additional Services</string>
+    <string name="IDLayanan">ID Service</string>
 </resources>

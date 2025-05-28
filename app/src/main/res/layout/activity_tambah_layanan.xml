@@ -3,110 +3,105 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    style="@style/backgroundStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="24dp"
     tools:context=".layanan.TambahLayananActivity">
 
+    <!-- Judul -->
     <TextView
         android:id="@+id/tvJudul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/TambahLayanan"
-        android:textSize="25sp"
+        android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
         android:textStyle="bold"
-        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvNama"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/NamaLayanan"
-        android:layout_marginStart="20dp"
-        android:textSize="20sp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvJudul" />
-
-    <EditText
-        android:id="@+id/etNamaLayanan"
+    <!-- Input Nama -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilNamaPelanggan"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/border3"
-        android:hint="Nama Layanan"
-        android:minHeight="48dp"
-        android:padding="5dp"
-        android:textSize="20sp"
+        android:layout_marginTop="24dp"
+        android:hint="@string/NamaLayanan"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvNama" />
+        app:layout_constraintTop_toBottomOf="@id/tvJudul">
 
-    <TextView
-        android:id="@+id/tvLayanan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="@string/HargaLayanan"
-        android:textSize="20sp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNamaLayanan" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etNamaLayanan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/etHargaLayanan"
+    <!-- Input Harga -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilAlamatPelanggan"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/border3"
-        android:hint="Harga Layanan"
-        android:minHeight="48dp"
-        android:padding="5dp"
-        android:textSize="20sp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/Harga"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLayanan" />
+        app:layout_constraintTop_toBottomOf="@id/tilNamaPelanggan">
 
-    <TextView
-        android:id="@+id/tvCabang"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="@string/Cabang"
-        android:textSize="20sp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etHargaLayanan" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etHargaLayanan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/etCabangLayanan"
+    <!-- Input Cabang -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilNomorTeleponPelanggan"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/border3"
-        android:hint="Cabang"
-        android:minHeight="48dp"
-        android:padding="5dp"
-        android:textSize="20sp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/Cabang"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCabang" />
+        app:layout_constraintTop_toBottomOf="@id/tilAlamatPelanggan">
 
-    <Button
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etCabangLayanan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Tombol Simpan -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btSimpan"
+        style="@style/buttonStyle1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:text="Tambah"
-        style="@style/buttonStyle1"
-        android:textSize="20sp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/TambahLayanan"
+        android:textAllCaps="false"
+        app:iconPadding="8dp"
+        app:iconTint="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etCabangLayanan" />
+        app:layout_constraintTop_toBottomOf="@id/tilNomorTeleponPelanggan" />
 </androidx.constraintlayout.widget.ConstraintLayout>

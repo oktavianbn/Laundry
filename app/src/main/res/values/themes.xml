@@ -1,11 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Laundry" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Warna untuk Light Mode -->
-        <item name="colorOnBackground">#FEEEDF</item>
-        <item name="colorOnPrimary">#241F1B</item>
-        <item name="colorPrimary">#fdfcfa</item>
-    </style>
+    <!-- Tema tanpa ActionBar (untuk MainActivity) -->
+    <style name="Theme.MyApp.NoActionBar" parent="Theme.Material3.DayNight.NoActionBar" />
+
+    <!-- Tema dengan ActionBar (untuk DetailActivity) -->
+    <style name="Theme.MyApp.WithActionBar" parent="Theme.Material3.DayNight" />
 
     <style name="textViewStyle">
         <item name="android:textColor">#241F1B</item>
@@ -19,13 +18,13 @@
     <style name="buttonStyle1">
         <item name="android:backgroundTint">#3F51B5</item>
         <item name="android:textColor">#FFFFFF</item>
-
     </style>
     <style name="buttonStyle2">
         <item name="android:backgroundTint">#1F2845</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
-
-
-
+    <style name="fabStyle">
+        <item name="android:backgroundTint">#1F2845</item>
+        <item name="android:src">@drawable/baseline_add_24</item>
+    </style>
 </resources>

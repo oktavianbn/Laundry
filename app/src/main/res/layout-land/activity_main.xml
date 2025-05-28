@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    style="@style/backgroundStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    style="@style/backgroundStyle"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:paddingHorizontal="30dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="30dp"
         android:weightSum="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,8 +27,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:text="Selamat Waktu,Nama"
             android:layout_weight="1"
+            android:text="Selamat Waktu,Nama"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -37,8 +37,8 @@
             style="@style/textViewStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="tt bbbb thth"
             android:layout_weight="1"
+            android:text="tt bbbb thth"
             android:textAlignment="textEnd"
             android:textSize="15sp" />
     </LinearLayout>
@@ -75,10 +75,10 @@
                     style="@style/textViewStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
                     android:layout_weight="1"
                     android:text="EstimasiHariIni"
                     android:textSize="20sp"
-                    android:layout_marginRight="5dp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -96,13 +96,17 @@
                     app:layout_constraintTop_toTopOf="parent" />
             </LinearLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#B9B9B9" />
+
             <GridLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@drawable/border1"
+                android:layout_marginHorizontal="10dp"
                 android:columnCount="1"
                 android:paddingTop="0.5dp"
-                android:layout_marginHorizontal="10dp"
                 android:rowCount="3">
 
                 <androidx.cardview.widget.CardView
@@ -201,32 +205,34 @@
             </GridLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
     <TextView
-        style="@style/textViewStyle"
         android:id="@+id/moto_text_TV"
+        style="@style/textViewStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
-        android:visibility="gone"
         android:text="Siap Melayani Pelanggan Dengan Setulus Hati"
+        android:textAlignment="center"
         android:textSize="19sp"
         android:textStyle="bold"
-        android:textAlignment="center"
-        android:layout_marginHorizontal="20dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/container_card_view" />
+
     <TextView
-        style="@style/textViewStyle"
         android:id="@+id/moto_text_2_TV"
+        style="@style/textViewStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="13dp"
-        android:visibility="gone"
         android:text="Jangan kecewakan hati pelanggan"
         android:textAlignment="textStart"
         android:textSize="14sp"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/moto_text_TV" />
@@ -235,12 +241,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="3dp"
+        android:layout_marginTop="15dp"
         android:columnCount="3"
         android:padding="8dp"
-        android:layout_marginTop="15dp"
         android:rowCount="2"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/container_card_view"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 

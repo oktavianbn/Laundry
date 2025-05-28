@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -22,13 +21,17 @@ import com.google.firebase.database.ValueEventListener
 class DataPegawaiActivity : AppCompatActivity() {
     val database = FirebaseDatabase.getInstance()
     val myRef = database.getReference("pegawai")
-    lateinit var  fabDataPegawaiTambah: FloatingActionButton
-    lateinit var rvDataPegawai : RecyclerView
+    lateinit var fabDataPegawaiTambah: FloatingActionButton
+    lateinit var rvDataPegawai: RecyclerView
     lateinit var pegawaiList: ArrayList<ModelPegawai>
+
+    //    lateinit var appContext: Context
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_data_pegawai)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.title = "Pegawai"
         init()
         fabTambah()
         val layoutManager = LinearLayoutManager(this)
@@ -36,31 +39,41 @@ class DataPegawaiActivity : AppCompatActivity() {
         layoutManager.stackFromEnd = true
         rvDataPegawai.layoutManager = layoutManager
         rvDataPegawai.setHasFixedSize(true)
-        pegawaiList= arrayListOf<ModelPegawai>()
+        pegawaiList = arrayListOf<ModelPegawai>()
         getDataPegawai()
+
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
     }
-    fun init(){
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
+    }
+
+    fun init() {
         rvDataPegawai = findViewById(R.id.rvDataPegawai)
         fabDataPegawaiTambah = findViewById(R.id.fabDataPegawaiTambah)
     }
-    fun fabTambah(){
+
+    fun fabTambah() {
         fabDataPegawaiTambah.setOnClickListener {
             val intent = Intent(this, TambahPegawaiActivity::class.java)
-            intent.putExtra("Judul","Edit Pegawai")
-            intent.putExtra("idPegawai",item.idPegawai)
-            intent.putExtra("namaPegawai",item.namaPegawai)
-            intent.putExtra("noHpPegawai",item.noHpPegawai)
-            intent.putExtra("alamatPegawai",item.alamatPegawai)
-//            intent.putExtra("idCabang",item.idCabang)
-            appContext.startActivity(intent)
+            intent.putExtra("Judul", getString(R.string.TambahPegawai))
+            intent.putExtra("idPegawai", "")
+            intent.putExtra("namaPegawai", "")
+            intent.putExtra("noHpPegawai", "")
+            intent.putExtra("alamatPegawai", "")
+            intent.putExtra("cabangPegawai", "")
+//            appContext.startActivity(intent)
             startActivity(intent)
         }
     }
+
     fun getDataPegawai() {
         val query = myRef.orderByChild("pegawai").limitToLast(100)
         query.addValueEventListener(object : ValueEventListener {
@@ -77,6 +90,7 @@ class DataPegawaiActivity : AppCompatActivity() {
                     adapter.notifyDataSetChanged()
                 }
             }
+
             override fun onCancelled(error: DatabaseError) {
                 Toast.makeText(this@DataPegawaiActivity, error.message, Toast.LENGTH_SHORT).show()
             }

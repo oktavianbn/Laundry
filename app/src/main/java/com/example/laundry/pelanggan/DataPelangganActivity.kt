@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -23,12 +22,17 @@ class DataPelangganActivity : AppCompatActivity() {
     val database = FirebaseDatabase.getInstance()
     val myRef = database.getReference("pelanggan")
     lateinit var fabDataPelangganTambah: FloatingActionButton
-    lateinit var rvDataPelanggan : RecyclerView
+    lateinit var rvDataPelanggan: RecyclerView
     lateinit var pelangganList: ArrayList<ModelPelanggan>
+
+    //    lateinit var appContext: Context
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
         setContentView(R.layout.activity_data_pelanggan)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.title = "Pelanggan"
         init()
         fabTambah()
         val layoutManager = LinearLayoutManager(this)
@@ -36,7 +40,7 @@ class DataPelangganActivity : AppCompatActivity() {
         layoutManager.stackFromEnd = true
         rvDataPelanggan.layoutManager = layoutManager
         rvDataPelanggan.setHasFixedSize(true)
-        pelangganList= arrayListOf<ModelPelanggan>()
+        pelangganList = arrayListOf<ModelPelanggan>()
         getDataPelanggan()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -44,36 +48,52 @@ class DataPelangganActivity : AppCompatActivity() {
             insets
         }
     }
-    fun init(){
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
+    }
+
+    fun init() {
         rvDataPelanggan = findViewById(R.id.rvDataPelanggan)
         fabDataPelangganTambah = findViewById(R.id.fabDataPelangganTambah)
     }
-    fun fabTambah(){
+
+    fun fabTambah() {
         fabDataPelangganTambah.setOnClickListener {
             val intent = Intent(this, TambahPelangganActivity::class.java)
+            intent.putExtra("Judul", getString(R.string.TambahPelanggan))
+            intent.putExtra("idPegawai", "")
+            intent.putExtra("namaPegawai", "")
+            intent.putExtra("noHpPegawai", "")
+            intent.putExtra("alamatPegawai", "")
+            intent.putExtra("cabangPegawai", "")
+//            appContext.startActivity(intent)
             startActivity(intent)
         }
     }
-    fun getDataPelanggan(){
+
+    fun getDataPelanggan() {
         val query = myRef.orderByChild("pelanggan").limitToLast(100)
-        query.addValueEventListener(object : ValueEventListener{
+        query.addValueEventListener(object : ValueEventListener {
             @SuppressLint("NotifyDataSetChanged")
             override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()){
+                if (snapshot.exists()) {
                     pelangganList.clear()
-                    for (data in snapshot.children){
-                        val pegawai = data.getValue(ModelPelanggan::class.java)
-                        pelangganList.add(pegawai!!)
+                    for (data in snapshot.children) {
+                        val pelanggan = data.getValue(ModelPelanggan::class.java)
+                        pelangganList.add(pelanggan!!)
                     }
                     val adapter = AdapterDataPelanggan(pelangganList)
                     rvDataPelanggan.adapter = adapter
                     adapter.notifyDataSetChanged()
                 }
             }
+
             override fun onCancelled(error: DatabaseError) {
                 Toast.makeText(this@DataPelangganActivity, error.message, Toast.LENGTH_SHORT).show()
-                }
             }
+        }
         )
     }
 }

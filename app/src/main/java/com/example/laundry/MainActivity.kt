@@ -11,8 +11,12 @@ import androidx.cardview.widget.CardView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import com.example.laundry.laporan.DataLaporanActivity
+import com.example.laundry.layanan.DataLayananActivity
 import com.example.laundry.pegawai.DataPegawaiActivity
 import com.example.laundry.pelanggan.DataPelangganActivity
+import com.example.laundry.tambahan.DataTambahanActivity
+import com.example.laundry.transaksi.TransakasiActivity
 
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
@@ -21,7 +25,7 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
-    lateinit var tvWelcome:TextView
+    lateinit var tvWelcome: TextView
     lateinit var tvWaktu: TextView
     lateinit var cvTransaksi: CardView
     lateinit var cvPelanggan: CardView
@@ -33,22 +37,24 @@ class MainActivity : AppCompatActivity() {
     lateinit var cvCabang: CardView
     lateinit var cvPrinter: CardView
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+
         init()
         pewaktu()
+
         berpindah()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
     }
-    fun init(){
+
+    fun init() {
         tvWelcome = findViewById(R.id.tvWelcome)
         tvWaktu = findViewById(R.id.tvWaktu)
         cvTransaksi = findViewById(R.id.cvTransaksi)
@@ -61,7 +67,12 @@ class MainActivity : AppCompatActivity() {
         cvCabang = findViewById(R.id.cvCabang)
         cvPrinter = findViewById(R.id.cvPrinter)
     }
-    fun  berpindah(){
+
+    fun berpindah() {
+        cvTransaksi.setOnClickListener {
+            val intent = Intent(this, TransakasiActivity::class.java)
+            startActivity(intent)
+        }
         cvPegawai.setOnClickListener {
             val intent = Intent(this, DataPegawaiActivity::class.java)
             startActivity(intent)
@@ -70,7 +81,31 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, DataPelangganActivity::class.java)
             startActivity(intent)
         }
+        cvLaporan.setOnClickListener {
+            val intent = Intent(this, DataLaporanActivity::class.java)
+            startActivity(intent)
+        }
+        cvLayanan.setOnClickListener {
+            val intent = Intent(this, DataLayananActivity::class.java)
+            startActivity(intent)
+        }
+        cvTambahan.setOnClickListener {
+            val intent = Intent(this, DataTambahanActivity::class.java)
+            startActivity(intent)
+        }
+        cvCabang.setOnClickListener {
+//            belum
+            val intent = Intent(this, DataLaporanActivity::class.java)
+            startActivity(intent)
+        }
+        cvPrinter.setOnClickListener {
+//            belum
+            val intent = Intent(this, DataLaporanActivity::class.java)
+            startActivity(intent)
+        }
+
     }
+
     @SuppressLint("SimpleDateFormat")
     private fun pewaktu() {
         val jam = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
@@ -86,6 +121,7 @@ class MainActivity : AppCompatActivity() {
         tvWelcome.text = result
         tvWaktu.text = hth.format(Calendar.getInstance().time)
     }
+
     fun startClockUpdater() {
         lifecycleScope.launch {
             while (isActive) {
@@ -95,7 +131,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override  fun onResume() {
+    override fun onResume() {
         super.onResume()
         startClockUpdater()
     }
