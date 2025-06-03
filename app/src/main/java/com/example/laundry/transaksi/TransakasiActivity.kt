@@ -8,8 +8,11 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.laundry.R
+import com.example.laundry.adapter.AdapterPilihLayananTambahan
+import com.example.laundry.model_data.ModelTambahan
 
 class TransakasiActivity : AppCompatActivity() {
     lateinit var btnPilihPelanggan: Button
@@ -21,6 +24,11 @@ class TransakasiActivity : AppCompatActivity() {
     lateinit var tvNoHpPelanggan: TextView
     lateinit var tvNamaLayanan: TextView
     lateinit var tvHargaLayanan: TextView
+
+    val listTambahan = ArrayList<ModelTambahan>()
+    val adapter = AdapterPilihLayananTambahan(listTambahan)
+
+
 
     private val pilihPelangganLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -45,6 +53,23 @@ class TransakasiActivity : AppCompatActivity() {
             tvHargaLayanan.text = hp
         }
     }
+    private val pilihTambahanLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val data = result.data
+            if (data != null) {
+                val id = data.getStringExtra("id") ?: ""
+                val nama = data.getStringExtra("nama") ?: ""
+                val harga = data.getStringExtra("harga") ?: ""
+
+                val tambahan = ModelTambahan(id, nama, harga)
+                listTambahan.add(tambahan)
+                adapter.notifyItemInserted(listTambahan.size - 1)
+            }
+        }
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,6 +103,11 @@ class TransakasiActivity : AppCompatActivity() {
         tvNoHpPelanggan = findViewById(R.id.tvNoHpPelanggan)
         tvNamaLayanan = findViewById(R.id.tvNamaLayanan)
         tvHargaLayanan = findViewById(R.id.tvHargaLayanan)
+
+
+        rcLayananTambahan.layoutManager = LinearLayoutManager(this)
+        rcLayananTambahan.adapter = adapter
+
     }
 
     fun navigasi() {
@@ -91,7 +121,7 @@ class TransakasiActivity : AppCompatActivity() {
         }
         btnTambahan.setOnClickListener {
             val intent = Intent(this, PilihLayananTambahanActivity::class.java)
-//            pilihPelangganLauncher.launch(intent)
+            pilihTambahanLauncher.launch(intent)
             startActivity(intent)
         }
 

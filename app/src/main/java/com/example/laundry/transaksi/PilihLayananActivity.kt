@@ -26,17 +26,20 @@ class PilihLayananActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pilih_layanan)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
-        supportActionBar?.title = "Transaksi"
-        rvPilihLayanan = findViewById(R.id.rvPilihLayanan)
-        rvPilihLayanan.layoutManager = LinearLayoutManager(this)
+        init()
         getData()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
+    fun init(){
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        supportActionBar?.title = "Transaksi"
+        rvPilihLayanan = findViewById(R.id.rvPilihLayanan)
+        rvPilihLayanan.layoutManager = LinearLayoutManager(this)
     }
 
     override fun onSupportNavigateUp(): Boolean {

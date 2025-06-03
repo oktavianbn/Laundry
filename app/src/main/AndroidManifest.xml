@@ -17,7 +17,7 @@
         android:label="laundry"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyApp.NoActionBar"
+        android:theme="@style/Theme.MyApp.WithActionBar"
         tools:targetApi="31">
         <activity
             android:name=".transaksi.PilihLayananTambahanActivity"
@@ -77,7 +77,8 @@
             android:theme="@style/Theme.MyApp.WithActionBar" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.MyApp.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

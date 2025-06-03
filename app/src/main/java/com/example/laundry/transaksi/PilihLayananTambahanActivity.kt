@@ -29,6 +29,7 @@ class PilihLayananTambahanActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.title = "Transaksi"
+        getData()
         rvPilihLayananTambahan = findViewById(R.id.rvPilihLayananTambahan)
         rvPilihLayananTambahan.layoutManager = LinearLayoutManager(this)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -55,18 +56,18 @@ class PilihLayananTambahanActivity : AppCompatActivity() {
                         tambahanList.add(tambahan!!)
                     }
 
-//                    val adapter = AdapterPilihLayananTambahan(tambahanList) { selectedTambahan ->
-//                        // kirim data kembali ke activity sebelumnya
-//                        val resultIntent = Intent()
-//                        resultIntent.putExtra("idLayanan", selectedTambahan.idLayanan)
-//                        resultIntent.putExtra("namaLayanan", selectedTambahan.namaLayanan)
-//                        resultIntent.putExtra("hargaLayanan", selectedTambahan.hargaLayanan)
-//                        setResult(RESULT_OK, resultIntent)
-//                        finish()
-//                    }
-//
-//                    rvPilihLayananTambahan.adapter = adapter
-//                    adapter.notifyDataSetChanged()
+                    val adapter = AdapterPilihLayananTambahan(tambahanList) { selectedTambahan ->
+                        // kirim data kembali ke activity sebelumnya
+                        val resultIntent = Intent()
+                        resultIntent.putExtra("idLayanan", selectedTambahan.idTambahan)
+                        resultIntent.putExtra("namaLayanan", selectedTambahan.namaTambahan)
+                        resultIntent.putExtra("hargaLayanan", selectedTambahan.hargaTambahan)
+                        setResult(RESULT_OK, resultIntent)
+                        finish()
+                    }
+
+                    rvPilihLayananTambahan.adapter = adapter
+                    adapter.notifyDataSetChanged()
                 }
             }
 

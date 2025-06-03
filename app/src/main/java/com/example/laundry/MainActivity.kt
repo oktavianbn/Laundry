@@ -5,6 +5,7 @@ import android.content.Intent
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
@@ -17,12 +18,12 @@ import com.example.laundry.pegawai.DataPegawaiActivity
 import com.example.laundry.pelanggan.DataPelangganActivity
 import com.example.laundry.tambahan.DataTambahanActivity
 import com.example.laundry.transaksi.TransakasiActivity
-
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Locale
+
 
 class MainActivity : AppCompatActivity() {
     lateinit var tvWelcome: TextView
@@ -44,7 +45,6 @@ class MainActivity : AppCompatActivity() {
 
         init()
         pewaktu()
-
         berpindah()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())

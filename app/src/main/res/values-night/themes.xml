@@ -1,15 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <!-- Tema tanpa ActionBar (untuk MainActivity) -->
-    <style name="Theme.MyApp.NoActionBar" parent="Theme.Material3.DayNight.NoActionBar" >
+    <style name="Theme.MyApp.NoActionBar" parent="Theme.Material3.DayNight.NoActionBar"/>
 
+    <!-- res/values-night/themes.xml (untuk dark mode) -->
+    <style name="Theme.MyApp.WithActionBar" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">#1a2239</item>
     </style>
-
-    <!-- Tema dengan ActionBar (untuk DetailActivity) -->
-    <style name="Theme.MyApp.WithActionBar" parent="Theme.Material3.DayNight" >
-
-    </style>
-
 
     <style name="textViewStyle">
         <item name="android:textColor">#F2DCCC</item>
@@ -31,5 +28,9 @@
     <style name="fabStyle">
         <item name="android:backgroundTint">#FAEEAF</item>
         <item name="android:src">@drawable/baseline_add_24_dark</item>
+    </style>
+    <style name="deleteButton">
+        <item name="backgroundTint">#1F2845</item>
+        <item name="android:src">@drawable/delete_24px</item>"
     </style>
 </resources>

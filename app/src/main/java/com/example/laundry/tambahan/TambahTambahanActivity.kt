@@ -71,8 +71,8 @@ class TambahTambahanActivity : AppCompatActivity() {
         } else {
             hidup()
             etNamaTambahan.requestFocus()
+            btSimpan.text = "Simpan"
         }
-        btSimpan.text = "Simpan"
     }
 
     fun mati() {
