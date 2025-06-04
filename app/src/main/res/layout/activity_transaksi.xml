@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    style="@style/backgroundStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".transaksi.TransakasiActivity">
+    tools:context=".transaksi.TransaksiActivity">
 
     <LinearLayout
         android:id="@+id/main_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
 
-        android:orientation="horizontal"
-        android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,10 +22,10 @@
 
         <!-- Kolom Kiri -->
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:paddingHorizontal="16dp"
             android:paddingEnd="8dp">
 
             <!-- Data Pelanggan -->
@@ -44,15 +44,15 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
+                    android:layout_marginTop="8dp"
                     android:text="Nama Pelanggan:" />
 
                 <TextView
                     android:id="@+id/tvNamaPelanggan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
-                    android:text="Nama Pelanggan" />
+                    android:layout_marginTop="8dp"
+                    android:text="" />
             </LinearLayout>
 
             <LinearLayout
@@ -68,7 +68,7 @@
                     android:id="@+id/tvNoHpPelanggan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="No HP" />
+                    android:text="" />
             </LinearLayout>
 
             <Button
@@ -76,14 +76,14 @@
                 style="@style/buttonStyle1"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-
+                android:layout_marginTop="8dp"
                 android:text="Pilih Pelanggan" />
 
             <!-- Layanan Utama -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:layout_marginTop="24dp"
 
                 android:text="Layanan Utama"
                 android:textSize="22sp"
@@ -95,16 +95,16 @@
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
+                    android:layout_height="27dp"
+                    android:layout_marginTop="8dp"
                     android:text="Nama Layanan:" />
 
                 <TextView
                     android:id="@+id/tvNamaLayanan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
-                    android:text="Nama Layanan" />
+                    android:layout_marginTop="8dp"
+                    android:text="" />
             </LinearLayout>
 
             <LinearLayout
@@ -120,7 +120,7 @@
                     android:id="@+id/tvHargaLayanan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Harga:" />
+                    android:text="" />
             </LinearLayout>
 
             <Button
@@ -128,31 +128,30 @@
                 style="@style/buttonStyle1"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-
+                android:layout_marginTop="8dp"
                 android:text="Pilih Layanan" />
         </LinearLayout>
 
         <!-- Kolom Kanan -->
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:paddingStart="8dp">
+            android:paddingHorizontal="16dp">
 
             <!-- Layanan Tambahan -->
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Layanan Tambahan"
-
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-
+                android:layout_marginTop="8dp"
                 android:layout_weight="1"
                 android:paddingBottom="8dp">
 
@@ -176,7 +175,7 @@
                     android:id="@+id/btnTambahan"
                     style="@style/buttonStyle2"
                     android:layout_width="0dp"
-                    android:layout_height="50dp"
+                    android:layout_height="60dp"
                     android:layout_weight="1"
                     android:text="Tambahan" />
 
@@ -184,12 +183,11 @@
                     android:id="@+id/btnProses"
                     style="@style/buttonStyle1"
                     android:layout_width="0dp"
-                    android:layout_height="50dp"
+                    android:layout_height="60dp"
                     android:layout_marginStart="8dp"
                     android:layout_weight="1"
                     android:text="Proses" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

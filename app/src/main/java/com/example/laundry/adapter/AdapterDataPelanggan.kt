@@ -149,12 +149,6 @@ class AdapterDataPelanggan(
         }
     }
 
-    suspend fun hapusData(){
-        val database = FirebaseDatabase.getInstance()
-        val myRef = database.getReference("pelanggan")
-
-    }
-
     override fun getItemCount(): Int {
         return listPelanggan.size
     }

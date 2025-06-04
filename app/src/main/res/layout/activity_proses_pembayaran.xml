@@ -6,7 +6,7 @@
     style="@style/backgroundStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".transaksi.TransakasiActivity">
+    tools:context=".transaksi.TransaksiActivity">
 
     <LinearLayout
         android:id="@+id/main_layout"
@@ -71,14 +71,6 @@
                     android:text="" />
             </LinearLayout>
 
-            <Button
-                android:id="@+id/btnPilihPelanggan"
-                style="@style/buttonStyle1"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="8dp"
-                android:text="Pilih Pelanggan" />
-
             <!-- Layanan Utama -->
             <TextView
                 android:layout_width="wrap_content"
@@ -122,14 +114,6 @@
                     android:layout_height="wrap_content"
                     android:text="" />
             </LinearLayout>
-
-            <Button
-                android:id="@+id/btnPilihLayanan"
-                style="@style/buttonStyle1"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="8dp"
-                android:text="Pilih Layanan" />
         </LinearLayout>
 
         <!-- Kolom Kanan -->
@@ -172,12 +156,12 @@
                 android:weightSum="2">
 
                 <Button
-                    android:id="@+id/btnTambahan"
+                    android:id="@+id/btnBatal"
                     style="@style/buttonStyle2"
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:layout_weight="1"
-                    android:text="Tambahan" />
+                    android:text="Batal" />
 
                 <Button
                     android:id="@+id/btnProses"
@@ -186,7 +170,7 @@
                     android:layout_height="60dp"
                     android:layout_marginStart="8dp"
                     android:layout_weight="1"
-                    android:text="Proses" />
+                    android:text="Transaksi" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

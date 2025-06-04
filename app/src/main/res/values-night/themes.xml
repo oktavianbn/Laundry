@@ -4,8 +4,13 @@
     <style name="Theme.MyApp.NoActionBar" parent="Theme.Material3.DayNight.NoActionBar"/>
 
     <!-- res/values-night/themes.xml (untuk dark mode) -->
-    <style name="Theme.MyApp.WithActionBar" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.MyApp.WithActionBar" parent="Theme.Material3.DayNight">
+        <item name="android:statusBarColor">#1a2239</item>
+
+        <!-- Warna background action bar -->
         <item name="colorPrimary">#1a2239</item>
+        <!-- Warna teks (judul & subtitle) -->
+        <item name="android:textColorPrimary">#F2DCCC</item>
     </style>
 
     <style name="textViewStyle">
@@ -31,6 +36,6 @@
     </style>
     <style name="deleteButton">
         <item name="backgroundTint">#1F2845</item>
-        <item name="android:src">@drawable/delete_24px</item>"
+<!--        <item name="android:src">@drawable/delete_24px</item>"-->
     </style>
 </resources>

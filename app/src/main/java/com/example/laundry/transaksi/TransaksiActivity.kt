@@ -2,8 +2,10 @@ package com.example.laundry.transaksi
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -14,7 +16,7 @@ import com.example.laundry.R
 import com.example.laundry.adapter.AdapterPilihLayananTambahan
 import com.example.laundry.model_data.ModelTambahan
 
-class TransakasiActivity : AppCompatActivity() {
+class TransaksiActivity : AppCompatActivity() {
     lateinit var btnPilihPelanggan: Button
     lateinit var btnPilihLayanan: Button
     lateinit var btnTambahan: Button
@@ -26,9 +28,7 @@ class TransakasiActivity : AppCompatActivity() {
     lateinit var tvHargaLayanan: TextView
 
     val listTambahan = ArrayList<ModelTambahan>()
-    val adapter = AdapterPilihLayananTambahan(listTambahan)
-
-
+    lateinit var adapter: AdapterPilihLayananTambahan
 
     private val pilihPelangganLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -53,34 +53,51 @@ class TransakasiActivity : AppCompatActivity() {
             tvHargaLayanan.text = hp
         }
     }
+
     private val pilihTambahanLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { result ->
+        Log.d("TransaksiActivity", "Result received - resultCode: ${result.resultCode}")
         if (result.resultCode == RESULT_OK) {
             val data = result.data
-            if (data != null) {
-                val id = data.getStringExtra("id") ?: ""
-                val nama = data.getStringExtra("nama") ?: ""
-                val harga = data.getStringExtra("harga") ?: ""
+            val id = data?.getStringExtra("idTambahan") ?: ""
+            val nama = data?.getStringExtra("namaTambahan") ?: ""
+            val harga = data?.getStringExtra("hargaTambahan") ?: ""
+
+            Log.d("TransaksiActivity", "Data diterima: id=$id, nama=$nama, harga=$harga")
+
+            if (nama.isNotEmpty()) {
+                Toast.makeText(this, "Diterima: $nama - $harga", Toast.LENGTH_SHORT).show()
 
                 val tambahan = ModelTambahan(id, nama, harga)
-                listTambahan.add(tambahan)
-                adapter.notifyItemInserted(listTambahan.size - 1)
+
+                // Cek duplikasi berdasarkan ID
+                val existingItem = listTambahan.find { it.idTambahan == id }
+                if (existingItem == null) {
+                    listTambahan.add(tambahan)
+                    adapter.notifyItemInserted(listTambahan.size - 1)
+                    Log.d("TransaksiActivity", "Item added to list. Total items: ${listTambahan.size}")
+                } else {
+                    Toast.makeText(this, "Item sudah ada: $nama", Toast.LENGTH_SHORT).show()
+                    Log.d("TransaksiActivity", "Duplicate item ignored: $nama")
+                }
+            } else {
+                Log.e("TransaksiActivity", "Received empty data")
             }
+        } else {
+            Log.d("TransaksiActivity", "Result not OK")
         }
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_transakasi)
-
-        init()
-        navigasi()
-
+        setContentView(R.layout.activity_transaksi)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.title = "Transaksi"
+        init()
+        navigasi()
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -104,10 +121,32 @@ class TransakasiActivity : AppCompatActivity() {
         tvNamaLayanan = findViewById(R.id.tvNamaLayanan)
         tvHargaLayanan = findViewById(R.id.tvHargaLayanan)
 
-
         rcLayananTambahan.layoutManager = LinearLayoutManager(this)
+
+        // Inisialisasi adapter dengan parameter yang benar
+        adapter = AdapterPilihLayananTambahan(
+            items = listTambahan, // MutableList
+            isInTransaction = true, // true untuk activity transaksi (tombol hapus visible)
+            onDeleteClick = { tambahan, position ->
+                Log.d("TransaksiActivity", "Delete requested for: ${tambahan.namaTambahan} at position: $position")
+
+                // Hapus dari list
+                if (position >= 0 && position < listTambahan.size) {
+                    val removedItem = listTambahan.removeAt(position)
+                    adapter.notifyItemRemoved(position)
+                    adapter.notifyItemRangeChanged(position, listTambahan.size)
+
+                    Toast.makeText(this, "Item dihapus: ${removedItem.namaTambahan}", Toast.LENGTH_SHORT).show()
+                    Log.d("TransaksiActivity", "Item removed: ${removedItem.namaTambahan}, remaining: ${listTambahan.size}")
+                } else {
+                    Log.e("TransaksiActivity", "Invalid position for deletion: $position")
+                }
+            }
+        )
+
         rcLayananTambahan.adapter = adapter
 
+        Log.d("TransaksiActivity", "Adapter initialized with isInTransaction: true")
     }
 
     fun navigasi() {
@@ -120,10 +159,9 @@ class TransakasiActivity : AppCompatActivity() {
             pilihLayananLauncher.launch(intent)
         }
         btnTambahan.setOnClickListener {
+            Log.d("TransaksiActivity", "Launching PilihLayananTambahanActivity")
             val intent = Intent(this, PilihLayananTambahanActivity::class.java)
             pilihTambahanLauncher.launch(intent)
-            startActivity(intent)
         }
-
     }
 }

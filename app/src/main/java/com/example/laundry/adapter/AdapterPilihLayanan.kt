@@ -30,8 +30,8 @@ class AdapterPilihLayanan(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.card_pilih_layanan_tambahan, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.card_pilih_layanan, parent, false)
         return ViewHolder(view)
     }
 

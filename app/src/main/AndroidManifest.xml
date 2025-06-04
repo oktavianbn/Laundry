@@ -20,6 +20,9 @@
         android:theme="@style/Theme.MyApp.WithActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".transaksi.ProsesPembayaranActivity"
+            android:exported="false" />
+        <activity
             android:name=".transaksi.PilihLayananTambahanActivity"
             android:exported="false"
             android:theme="@style/Theme.MyApp.WithActionBar" />
@@ -40,7 +43,7 @@
             android:exported="false"
             android:theme="@style/Theme.MyApp.WithActionBar" />
         <activity
-            android:name=".transaksi.TransakasiActivity"
+            android:name=".transaksi.TransaksiActivity"
             android:exported="false"
             android:theme="@style/Theme.MyApp.WithActionBar" />
         <activity
@@ -78,7 +81,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.MyApp.NoActionBar" >
+            android:theme="@style/Theme.MyApp.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

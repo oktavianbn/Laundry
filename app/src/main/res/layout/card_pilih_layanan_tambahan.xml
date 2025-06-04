@@ -83,7 +83,7 @@
             </LinearLayout>
 
             <ImageButton
-                android:id="@+id/btnDelete"
+                android:id="@+id/btnHapus"
                 style="@style/deleteButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"

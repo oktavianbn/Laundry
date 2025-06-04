@@ -9,6 +9,7 @@
     style="@style/backgroundStyle"
     tools:context=".MainActivity">
 
+
     <TextView
         style="@style/textViewStyle"
         android:id="@+id/tvWelcome"

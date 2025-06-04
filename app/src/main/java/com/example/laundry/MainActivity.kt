@@ -5,7 +5,6 @@ import android.content.Intent
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
@@ -17,7 +16,7 @@ import com.example.laundry.layanan.DataLayananActivity
 import com.example.laundry.pegawai.DataPegawaiActivity
 import com.example.laundry.pelanggan.DataPelangganActivity
 import com.example.laundry.tambahan.DataTambahanActivity
-import com.example.laundry.transaksi.TransakasiActivity
+import com.example.laundry.transaksi.TransaksiActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
@@ -70,7 +69,7 @@ class MainActivity : AppCompatActivity() {
 
     fun berpindah() {
         cvTransaksi.setOnClickListener {
-            val intent = Intent(this, TransakasiActivity::class.java)
+            val intent = Intent(this, TransaksiActivity::class.java)
             startActivity(intent)
         }
         cvPegawai.setOnClickListener {
