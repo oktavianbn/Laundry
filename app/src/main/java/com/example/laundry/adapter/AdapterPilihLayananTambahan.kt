@@ -25,7 +25,7 @@ class AdapterPilihLayananTambahan(
 
         fun bind(item: ModelTambahan) {
             tvNamaTambahan.text = item.namaTambahan
-            tvHargaTambahan.text = item.hargaTambahan
+            tvHargaTambahan.text = item.hargaTambahan.toString()
 
             // Atur visibility tombol hapus berdasarkan konteks
             btnHapus.visibility = if (isInTransaction) View.VISIBLE else View.GONE

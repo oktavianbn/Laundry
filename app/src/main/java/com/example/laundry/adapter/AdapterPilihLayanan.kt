@@ -40,7 +40,7 @@ class AdapterPilihLayanan(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val layanan = listLayanan[position]
         holder.tvNamaLayanan.text = layanan.namaLayanan
-        holder.tvHargaLayanan.text = layanan.hargaLayanan
+        holder.tvHargaLayanan.text = layanan.hargaLayanan.toString()
         // Listener sudah ditangani di init block
     }
 }

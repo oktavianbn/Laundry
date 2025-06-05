@@ -35,7 +35,7 @@ class AdapterDataTambahan(
         val myRef = database.getReference("tambahan")
         val item = listTambahan[position]
         holder.tvNamaTambahan.text = item.namaTambahan
-        holder.tvHargaTambahan.text = item.hargaTambahan
+        holder.tvHargaTambahan.text = item.hargaTambahan.toString()
         holder.tvCabangTambahan.text = item.cabangTambahan
         holder.cDataTambahan.setOnClickListener {
 
@@ -53,7 +53,7 @@ class AdapterDataTambahan(
             val btnHapus = dialogView.findViewById<Button>(R.id.btnHapus)
             tvIdTambahan.text = item.idTambahan
             tvNamaTambahan.text = item.namaTambahan
-            etNoHpTambahan.text = item.hargaTambahan
+            etNoHpTambahan.text = item.hargaTambahan.toString()
             tvCabangTambahan.text = item.cabangTambahan
 
 

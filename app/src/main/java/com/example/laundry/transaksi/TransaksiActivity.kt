@@ -62,7 +62,7 @@ class TransaksiActivity : AppCompatActivity() {
             val data = result.data
             val id = data?.getStringExtra("idTambahan") ?: ""
             val nama = data?.getStringExtra("namaTambahan") ?: ""
-            val harga = data?.getStringExtra("hargaTambahan") ?: ""
+            val harga = data?.getIntExtra("hargaTambahan",0)
 
             Log.d("TransaksiActivity", "Data diterima: id=$id, nama=$nama, harga=$harga")
 
@@ -97,7 +97,6 @@ class TransaksiActivity : AppCompatActivity() {
         supportActionBar?.title = "Transaksi"
         init()
         navigasi()
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -159,9 +158,21 @@ class TransaksiActivity : AppCompatActivity() {
             pilihLayananLauncher.launch(intent)
         }
         btnTambahan.setOnClickListener {
-            Log.d("TransaksiActivity", "Launching PilihLayananTambahanActivity")
             val intent = Intent(this, PilihLayananTambahanActivity::class.java)
             pilihTambahanLauncher.launch(intent)
         }
+        btnProses.setOnClickListener {
+            val intent = Intent(this, ProsesPembayaranActivity::class.java)
+            intent.putExtra("namaPelanggan", tvNamaPelanggan.text.toString())
+            intent.putExtra("noHpPelanggan", tvNoHpPelanggan.text.toString())
+            intent.putExtra("namaLayanan", tvNamaLayanan.text.toString())
+            intent.putExtra("hargaLayanan", tvHargaLayanan.text.toString())
+ 
+            intent.putParcelableArrayListExtra("listTambahan", listTambahan)
+
+            startActivity(intent)
+
+        }
+
     }
 }

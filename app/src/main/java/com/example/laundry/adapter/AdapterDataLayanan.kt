@@ -35,7 +35,7 @@ class AdapterDataLayanan(
         val myRef = database.getReference("layanan")
         val item = listLayanan[position]
         holder.tvNamaLayanan.text = item.namaLayanan
-        holder.tvHargaLayanan.text = item.hargaLayanan
+        holder.tvHargaLayanan.text = item.hargaLayanan.toString()
         holder.tvCabangLayanan.text = item.cabangLayanan
         holder.cDataLayanan.setOnClickListener {
 
@@ -53,7 +53,7 @@ class AdapterDataLayanan(
             val btnHapus = dialogView.findViewById<Button>(R.id.btnHapus)
             tvIdLayanan.text = item.idLayanan
             tvNamaLayanan.text = item.namaLayanan
-            etNoHpLayanan.text = item.hargaLayanan
+            etNoHpLayanan.text = item.hargaLayanan.toString()
             tvCabangLayanan.text = item.cabangLayanan
 
 

@@ -58,11 +58,11 @@ class TambahLayananActivity : AppCompatActivity() {
         idLayanan = intent.getStringExtra("idLayanan").toString()
         val judul = intent.getStringExtra("Judul")
         val nama = intent.getStringExtra("namaLayanan")
-        val harga = intent.getStringExtra("hargaLayanan")
+        val harga = intent.getIntExtra("hargaLayanan",0)
         val cabang = intent.getStringExtra("cabangLayanan")
         tvJudul.text = judul
         etNamaLayanan.setText(nama)
-        etHargaLayanan.setText(harga)
+        etHargaLayanan.setText("$harga")
         etCabangLayanan.setText(cabang)
         if (!tvJudul.text.equals("Tambah Layanan")) {
             if (judul.equals("Edit Layanan")) {
@@ -93,7 +93,7 @@ class TambahLayananActivity : AppCompatActivity() {
         val data = ModelLayanan(
             idLayanan,
             etNamaLayanan.text.toString(),
-            etHargaLayanan.text.toString(),
+            etHargaLayanan.text.toString().toInt(),
             etCabangLayanan.text.toString()
         )
         val updateData = mutableMapOf<String, Any>()
@@ -155,7 +155,7 @@ class TambahLayananActivity : AppCompatActivity() {
         val data = ModelLayanan(
             layananID,
             etNamaLayanan.text.toString(),
-            etHargaLayanan.text.toString(),
+            etHargaLayanan.text.toString().toInt(),
             etCabangLayanan.text.toString()
         )
 

@@ -57,11 +57,11 @@ class TambahTambahanActivity : AppCompatActivity() {
         idTambahan = intent.getStringExtra("idTambahan").toString()
         val judul = intent.getStringExtra("Judul")
         val nama = intent.getStringExtra("namaTambahan")
-        val harga = intent.getStringExtra("hargaTambahan")
+        val harga = intent.getIntExtra("hargaTambahan",0)
         val cabang = intent.getStringExtra("cabangTambahan")
         tvJudul.text = judul
         etNamaTambahan.setText(nama)
-        etHargaTambahan.setText(harga)
+        etHargaTambahan.setText("$harga")
         etCabangTambahan.setText(cabang)
         if (!tvJudul.text.equals("Tambah Layanan Tambahan")) {
             if (judul.equals("Edit Layanan Tambahan")) {
@@ -92,7 +92,7 @@ class TambahTambahanActivity : AppCompatActivity() {
         val data = ModelTambahan(
             idTambahan,
             etNamaTambahan.text.toString(),
-            etHargaTambahan.text.toString(),
+            etHargaTambahan.text.toString().toInt(),
             etCabangTambahan.text.toString(),
         )
         val updateData = mutableMapOf<String, Any>()
@@ -123,7 +123,7 @@ class TambahTambahanActivity : AppCompatActivity() {
         val data = ModelTambahan(
             tambahanID,
             etNamaTambahan.text.toString(),
-            etHargaTambahan.text.toString(),
+            etHargaTambahan.text.toString().toInt(),
             etCabangTambahan.text.toString()
         )
 
@@ -161,6 +161,12 @@ class TambahTambahanActivity : AppCompatActivity() {
                 getString(R.string.AlamatKosong),
                 Toast.LENGTH_SHORT
             ).show()
+            return
+        }
+        if (harga <="0"){
+            etHargaTambahan.error = "Harga harus lebih dari 0"
+            etHargaTambahan.requestFocus()
+            Toast.makeText(this@TambahTambahanActivity, "Harga harus lebih dari 0", Toast.LENGTH_SHORT).show()
             return
         }
         if (cabang.isEmpty()) {
