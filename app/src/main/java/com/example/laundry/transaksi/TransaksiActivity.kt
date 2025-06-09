@@ -48,9 +48,9 @@ class TransaksiActivity : AppCompatActivity() {
         if (result.resultCode == RESULT_OK) {
             val data = result.data
             val nama = data?.getStringExtra("namaLayanan")
-            val hp = data?.getStringExtra("hargaLayanan")
+            val harga = data?.getIntExtra("hargaLayanan",0)
             tvNamaLayanan.text = nama
-            tvHargaLayanan.text = hp
+            tvHargaLayanan.text = harga.toString()
         }
     }
 
@@ -167,7 +167,7 @@ class TransaksiActivity : AppCompatActivity() {
             intent.putExtra("noHpPelanggan", tvNoHpPelanggan.text.toString())
             intent.putExtra("namaLayanan", tvNamaLayanan.text.toString())
             intent.putExtra("hargaLayanan", tvHargaLayanan.text.toString())
- 
+
             intent.putParcelableArrayListExtra("listTambahan", listTambahan)
 
             startActivity(intent)
@@ -176,3 +176,4 @@ class TransaksiActivity : AppCompatActivity() {
 
     }
 }
+

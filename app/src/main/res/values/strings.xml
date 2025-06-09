@@ -35,4 +35,23 @@
     <string name="HargaKosong">Please Enter Price</string>
     <string name="TambahLayananTambahan">Add Additional Services</string>
     <string name="IDLayanan">ID Service</string>
+    <string name="Akun">Account</string>
+    <string name="Layanan">Service</string>
+    <string name="Tambahan">Additional</string>
+    <string name="Pegawai">Worker</string>
+    <string name="Printer">Printer</string>
+    <string name="Pelanggan">Customer</string>
+    <string name="Transaksi">Transaction</string>
+    <string name="Laporan">Report</string>
+    <string name="Estimasi">Estimate</string>
+    <string name="Utamakan_Sholat_Kesehatan_dan_Keselamatan_kerja">Prioritize Prayer, Health and Work Safety</string>
+    <string name="Siap_Layani_Pelanggan_Setulus_Hati">Ready to Serve Customers Sincerely</string>
+    <string name="Selamat_Malam">Good Night</string>
+    <string name="Selamat_Pagi">Good Morning</string>
+    <string name="Selamat_Siang">Good Afternoon</string>
+    <string name="Selamat_Sore">Good Evening</string>
+    <string name="NamaCabang">Branch Name</string>
+    <string name="TambahCabang">Add Branch</string>
+
+
 </resources>

@@ -5,11 +5,6 @@
 
     <!-- res/values/themes.xml -->
     <style name="Theme.MyApp.WithActionBar" parent="Theme.Material3.DayNight">
-        <!-- Warna background action bar -->
-        <item name="colorPrimary">#FEEEDF</item>
-        <!-- Warna teks (judul & subtitle) -->
-        <item name="android:textColorPrimary">#241F1B</item>
-
     </style>
 
     <style name="textViewStyle">
@@ -35,6 +30,44 @@
     </style>
     <style name="deleteButton">
         <item name="backgroundTint">#FEEEDF</item>
-<!--        <item name="android:src">@drawable/delete_24px_dark</item>"-->
+        <item name="android:src">@drawable/delete_24px_dark</item>"
+    </style>
+        <!-- Primary Colors -->
+        <color name="primary_blue">#2196F3</color>
+        <color name="light_blue">#E3F2FD</color>
+
+        <!-- Background Colors -->
+        <color name="purple_start">#8E24AA</color>
+        <color name="purple_end">#5E35B1</color>
+
+        <!-- Card Colors -->
+        <color name="card_background">#FFFFFF</color>
+        <color name="divider_color">#E0E0E0</color>
+
+        <!-- Transport Service Colors -->
+        <color name="teman_bus">#FFA726</color>
+        <color name="brt_nusantara">#66BB6A</color>
+        <color name="kspn">#EF5350</color>
+        <color name="perintis">#5C6BC0</color>
+        <color name="akap">#9CCC65</color>
+        <color name="biskita">#FFFFFF</color>
+
+        <!-- Text Colors -->
+        <color name="text_primary">#212121</color>
+        <color name="text_secondary">#757575</color>
+        <color name="text_white">#FFFFFF</color>
+
+    <color name="endColor">#FFFFFF</color>
+    <color name="color_1">#8E8E8E</color>
+    <color name="color_2">#FFFFFF</color>
+    <color name="stroke">#88838C</color>
+    <color name="text_1">#FFFFFF</color>
+    <color name="text_2">#000000</color>
+    <color name="text_3">#535353</color>
+    <style name="cardViewBackground_1">
+        <item name="android:backgroundTint">#FFFFFF</item>
+    </style>
+    <style name="cardViewBackground_2">
+        <item name="android:backgroundTint">#EDF6FF</item>
     </style>
 </resources>

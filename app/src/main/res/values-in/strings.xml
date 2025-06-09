@@ -36,4 +36,21 @@
     <string name="HargaKosong">Tolong Isi Harga</string>
     <string name="TambahLayananTambahan">Tambah Layanan Tambahan</string>
     <string name="IDLayanan">ID Layanan</string>
+    <string name="Akun">Akun</string>
+    <string name="Layanan">Layanan</string>
+    <string name="Tambahan">Tambahan</string>
+    <string name="Pegawai">Pegawai</string>
+    <string name="Printer">Printer</string>
+    <string name="Pelanggan">Pelanggan</string>
+    <string name="Transaksi">Transaksi</string>
+    <string name="Laporan">Laporan</string>
+    <string name="Estimasi">Estimasi</string>
+    <string name="Utamakan_Sholat_Kesehatan_dan_Keselamatan_kerja">Utamakan Sholat, Kesehatan dan Keselamatan kerja</string>
+    <string name="Siap_Layani_Pelanggan_Setulus_Hati">Siap Layani Pelanggan Setulus Hati</string>
+    <string name="Selamat_Malam">Selamat Malam</string>
+    <string name="Selamat_Pagi">Selamat Pagi</string>
+    <string name="Selamat_Siang">Selamat Siang</string>
+    <string name="Selamat_Sore">Selamat Sore</string>
+    <string name="NamaCabang">Nama Cabang</string>
+    <string name="TambahCabang">Tambah Cabang</string>
 </resources>

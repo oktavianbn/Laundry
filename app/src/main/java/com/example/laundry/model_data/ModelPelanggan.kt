@@ -5,5 +5,6 @@ class ModelPelanggan (
     val namaPelanggan:String?=null,
     val alamatPelanggan:String?=null,
     val noHpPelanggan:String?=null,
+    val cabangPelanggan:String?=null,
     val terdaftar:String?=null,
 )

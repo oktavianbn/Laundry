@@ -40,6 +40,8 @@ class AdapterDataPelanggan(
         holder.tvNamaPelanggan.text = item.namaPelanggan
         holder.tvAlamatPelanggan.text = item.alamatPelanggan
         holder.tvNoHpPelanggan.text = item.noHpPelanggan
+        holder.tvCabangPelanggan.text = item.cabangPelanggan
+        holder.tvTerdaftar.text = item.terdaftar
         val nomor = item.noHpPelanggan
         fun convertToInternationalFormat(number: String): String {
             return if (number.startsWith("0")) {
@@ -54,6 +56,7 @@ class AdapterDataPelanggan(
 
         }
         holder.btnHubungi.setOnClickListener {
+            val packageManager= appContext.packageManager
             val dialogView =
                 LayoutInflater.from(appContext).inflate(R.layout.dialog_mod_hubungi, null)
             val dialog =
@@ -82,10 +85,10 @@ class AdapterDataPelanggan(
                     appContext.startActivity(intent)
 
 
-//                    if (intent.resolveActivity(packageManager) != null) {
-//                    } else {
-//                        Toast.makeText(this, "WhatsApp tidak terinstal.", Toast.LENGTH_SHORT).show()
-//                    }
+                    if (intent.resolveActivity(packageManager) != null) {
+                    } else {
+                        Toast.makeText(appContext, "WhatsApp tidak terinstal.", Toast.LENGTH_SHORT).show()
+                    }
 
                 } catch (e: Exception) {
                     e.printStackTrace()
@@ -104,13 +107,16 @@ class AdapterDataPelanggan(
             val tvNamaPelanggan = dialogView.findViewById<TextView>(R.id.tvNamaPelanggan)
             val tvAlamatPelanggan = dialogView.findViewById<TextView>(R.id.tvAlamatPelanggan)
             val etNoHpPelanggan = dialogView.findViewById<TextView>(R.id.etNoHpPelanggan)
-//            val tvAlamat = dialogView.findViewById<TextView>(R.id.tvNamaPelanggan)
+            val tvCabangPelanggan = dialogView.findViewById<TextView>(R.id.tvCabangPelanggan)
+            val tvTerdaftar = dialogView.findViewById<TextView>(R.id.tvTerdaftar)
             val btnSunting = dialogView.findViewById<Button>(R.id.btnSunting)
             val btnHapus = dialogView.findViewById<Button>(R.id.btnHapus)
             tvIdPelanggan.text = item.idPelanggan
             tvNamaPelanggan.text = item.namaPelanggan
             tvAlamatPelanggan.text = item.alamatPelanggan
             etNoHpPelanggan.text = item.noHpPelanggan
+            tvCabangPelanggan.text = item.cabangPelanggan
+            tvTerdaftar.text = item.terdaftar
 
             btnSunting.setOnClickListener {
                 val intent = Intent(appContext, TambahPelangganActivity::class.java)
@@ -119,6 +125,8 @@ class AdapterDataPelanggan(
                 intent.putExtra("namaPelanggan", item.namaPelanggan)
                 intent.putExtra("noHpPelanggan", item.noHpPelanggan)
                 intent.putExtra("alamatPelanggan", item.alamatPelanggan)
+                intent.putExtra("cabangPelanggan", item.cabangPelanggan)
+                intent.putExtra("terdaftar", item.terdaftar)
                 appContext.startActivity(intent)
                 dialog.dismiss()
             }
@@ -158,6 +166,8 @@ class AdapterDataPelanggan(
         val tvNamaPelanggan: TextView = itemView.findViewById(R.id.tvNamaPelanggan)
         val tvAlamatPelanggan: TextView = itemView.findViewById(R.id.tvAlamatPelanggan)
         val tvNoHpPelanggan: TextView = itemView.findViewById(R.id.tvNoHpPelanggan)
+        val tvCabangPelanggan: TextView = itemView.findViewById(R.id.tvCabangPelanggan)
+        val tvTerdaftar: TextView = itemView.findViewById(R.id.tvTerdaftar)
         val cDataPelanggan: CardView = itemView.findViewById(R.id.cardDataPelanggan)
         val btnHubungi: Button = itemView.findViewById(R.id.btnHubungi)
         val btnLihat: Button = itemView.findViewById(R.id.btnLihat)

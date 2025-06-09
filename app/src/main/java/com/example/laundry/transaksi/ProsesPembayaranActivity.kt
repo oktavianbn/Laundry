@@ -1,8 +1,10 @@
 package com.example.laundry.transaksi
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.TextView
 import androidx.annotation.RequiresApi
@@ -15,6 +17,7 @@ import com.example.laundry.R
 import com.example.laundry.adapter.AdapterPembayaran
 import com.example.laundry.model_data.ModelTambahan
 
+@Suppress("DEPRECATION")
 class ProsesPembayaranActivity : AppCompatActivity() {
     lateinit var tvNamaPelanggan: TextView
     lateinit var tvNoHpPelanggan: TextView
@@ -33,6 +36,7 @@ class ProsesPembayaranActivity : AppCompatActivity() {
         setContentView(R.layout.activity_proses_pembayaran)
         init()
         set()
+        naviagasi()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -52,15 +56,21 @@ class ProsesPembayaranActivity : AppCompatActivity() {
     }
 
     @SuppressLint("SetTextI18n")
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     fun set() {
         val nama = intent.getStringExtra("namaPelanggan")
         val noHp = intent.getStringExtra("noHpPelanggan")
         val namaLayanan = intent.getStringExtra("namaLayanan")
         val hargaLayanan = intent.getStringExtra("hargaLayanan")
-
         val list: ArrayList<ModelTambahan>? =
-            intent.getParcelableArrayListExtra("dataTambahan", ModelTambahan::class.java)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                intent.getParcelableArrayListExtra("dataTambahan", ModelTambahan::class.java)
+            } else {
+                @Suppress("DEPRECATION")
+                intent.getParcelableArrayListExtra("dataTambahan")
+            }
+
+
+
         tvNamaPelanggan.text = nama
         tvNoHpPelanggan.text = noHp
         tvNamaLayanan.text = namaLayanan
@@ -70,7 +80,7 @@ class ProsesPembayaranActivity : AppCompatActivity() {
             rcLayananTambahan.layoutManager = LinearLayoutManager(this)
             rcLayananTambahan.adapter = adapter
             hargaTambahan = list.sumOf { tambahan ->
-                tambahan.hargaTambahan?.toInt() ?: 0
+                tambahan.hargaTambahan ?: 0
             }
         }
         val hargaLayananInt = hargaLayanan?.toIntOrNull() ?: 0
@@ -81,5 +91,14 @@ class ProsesPembayaranActivity : AppCompatActivity() {
 
     }
 
-
+    fun naviagasi() {
+        btnBatal.setOnClickListener {
+            val intent = Intent(this, TransaksiActivity::class.java)
+            startActivity(intent)
+        }
+        btnProses.setOnClickListener {
+            val dialogView=LayoutInflater.from(this).inflate(R.layout.dialog_mod_hubungi,null)
+            val dialog= androidx.appcompat.app.AlertDialog.Builder(this).setView(dialogView).create()
+        }
+    }
 }

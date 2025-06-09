@@ -1,39 +1,61 @@
 package com.example.laundry.layanan
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.laundry.MainActivity
 import com.example.laundry.R
+import com.example.laundry.model_data.ModelCabang
 import com.example.laundry.model_data.ModelLayanan
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.card.MaterialCardView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class TambahLayananActivity : AppCompatActivity() {
     private val database = FirebaseDatabase.getInstance()
     private val myRef = database.getReference("layanan")
+    private val cabangRef = database.getReference("cabang")
+
     private lateinit var tvJudul: TextView
+    private lateinit var tvTitle: TextView
     private lateinit var etNamaLayanan: EditText
     private lateinit var etHargaLayanan: EditText
-    private lateinit var etCabangLayanan: EditText
+    private lateinit var tvCabangValue: TextView
+    private lateinit var cardCabang: MaterialCardView
     private lateinit var btSimpan: Button
+    private lateinit var btnBack: ImageButton
 
     var idLayanan: String = ""
+    private var selectedCabang: String = ""
+    private var cabangList = mutableListOf<ModelCabang>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tambah_layanan)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
-        supportActionBar?.title = "Layanan"
+        supportActionBar?.hide()
         init()
         getData()
+        loadCabangData()
         btSimpan.setOnClickListener {
             cekValidasi()
         }
+        cardCabang.setOnClickListener {
+            showCabangBottomSheet()
+        }
+        toolbar()
+        tvTitle.text = getString(R.string.Layanan)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -41,29 +63,34 @@ class TambahLayananActivity : AppCompatActivity() {
         }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        finish()
-        return true
+    fun toolbar() {
+        btnBack.setOnClickListener {
+            finish()
+        }
     }
 
     private fun init() {
         tvJudul = findViewById(R.id.tvJudul)
         etNamaLayanan = findViewById(R.id.etNamaLayanan)
         etHargaLayanan = findViewById(R.id.etHargaLayanan)
-        etCabangLayanan = findViewById(R.id.etCabangLayanan)
+        tvCabangValue = findViewById(R.id.tvCabangValue)
+        cardCabang = findViewById(R.id.cardCabang)
         btSimpan = findViewById(R.id.btSimpan)
+        btnBack = findViewById(R.id.btnBack)
+        tvTitle = findViewById(R.id.tvTitle)
     }
 
     fun getData() {
         idLayanan = intent.getStringExtra("idLayanan").toString()
         val judul = intent.getStringExtra("Judul")
         val nama = intent.getStringExtra("namaLayanan")
-        val harga = intent.getIntExtra("hargaLayanan",0)
+        val harga = intent.getIntExtra("hargaLayanan", 0)
         val cabang = intent.getStringExtra("cabangLayanan")
         tvJudul.text = judul
         etNamaLayanan.setText(nama)
         etHargaLayanan.setText("$harga")
-        etCabangLayanan.setText(cabang)
+        tvCabangValue.text = cabang ?: "Pilih cabang"
+        selectedCabang = cabang ?: "Pilih cabang"
         if (!tvJudul.text.equals("Tambah Layanan")) {
             if (judul.equals("Edit Layanan")) {
                 mati()
@@ -76,16 +103,64 @@ class TambahLayananActivity : AppCompatActivity() {
         }
     }
 
+    private fun loadCabangData() {
+        cabangRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                cabangList.clear()
+                for (snapshot in dataSnapshot.children) {
+                    val cabang = snapshot.getValue(ModelCabang::class.java)
+                    cabang?.let {
+                        cabangList.add(it)
+                    }
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Toast.makeText(
+                    this@TambahLayananActivity,
+                    "Error loading cabang data: ${databaseError.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        })
+    }
+
+    private fun showCabangBottomSheet() {
+        val bottomSheetDialog = BottomSheetDialog(this)
+        val bottomSheetView = layoutInflater.inflate(R.layout.bottom_sheet_cabang, null)
+
+        val listViewCabang = bottomSheetView.findViewById<ListView>(R.id.listViewCabang)
+        val tvTitleBottomSheet = bottomSheetView.findViewById<TextView>(R.id.tvTitle)
+
+        tvTitleBottomSheet.text = "Pilih Cabang"
+
+        // Create adapter for ListView
+        val cabangNames = cabangList.map { it.namaCabang ?: "Unknown" }
+        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, cabangNames)
+        listViewCabang.adapter = adapter
+
+        // Set item click listener
+        listViewCabang.setOnItemClickListener { _, _, position, _ ->
+            val selectedModel = cabangList[position]
+            selectedCabang = selectedModel.namaCabang ?: ""
+            tvCabangValue.text = selectedCabang
+            bottomSheetDialog.dismiss()
+        }
+
+        bottomSheetDialog.setContentView(bottomSheetView)
+        bottomSheetDialog.show()
+    }
+
     fun mati() {
         etNamaLayanan.isEnabled = false
         etHargaLayanan.isEnabled = false
-        etCabangLayanan.isEnabled = false
+        cardCabang.isEnabled = false
     }
 
     fun hidup() {
         etNamaLayanan.isEnabled = true
         etHargaLayanan.isEnabled = true
-        etCabangLayanan.isEnabled = true
+        cardCabang.isEnabled = true
     }
 
     fun update() {
@@ -94,7 +169,7 @@ class TambahLayananActivity : AppCompatActivity() {
             idLayanan,
             etNamaLayanan.text.toString(),
             etHargaLayanan.text.toString().toInt(),
-            etCabangLayanan.text.toString()
+            selectedCabang.ifEmpty { tvCabangValue.text.toString() }
         )
         val updateData = mutableMapOf<String, Any>()
         updateData["namaLayanan"] = data.namaLayanan.toString()
@@ -120,7 +195,6 @@ class TambahLayananActivity : AppCompatActivity() {
     private fun cekValidasi() {
         val nama = etNamaLayanan.text.toString().trim()
         val alamat = etHargaLayanan.text.toString().trim()
-        val cabang = etCabangLayanan.text.toString().trim()
 
         if (nama.isEmpty()) {
             etNamaLayanan.error = getString(R.string.NamaKosong)
@@ -132,9 +206,8 @@ class TambahLayananActivity : AppCompatActivity() {
             etHargaLayanan.requestFocus()
             return
         }
-        if (cabang.isEmpty()) {
-            etCabangLayanan.error = getString(R.string.CabangKosong)
-            etCabangLayanan.requestFocus()
+        if (selectedCabang.isEmpty() || selectedCabang == "Pilih cabang") {
+            Toast.makeText(this, getString(R.string.CabangKosong), Toast.LENGTH_SHORT).show()
             return
         }
         if (btSimpan.text.equals("Simpan")) {
@@ -156,7 +229,7 @@ class TambahLayananActivity : AppCompatActivity() {
             layananID,
             etNamaLayanan.text.toString(),
             etHargaLayanan.text.toString().toInt(),
-            etCabangLayanan.text.toString()
+            selectedCabang.ifEmpty { tvCabangValue.text.toString() }
         )
 
         layananBaru.setValue(data)
